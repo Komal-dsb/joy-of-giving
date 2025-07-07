@@ -15,23 +15,23 @@ const featuredPrograms = [
     id: 1,
     title: "Education for All",
     description: "Providing quality education and learning resources to underserved communities worldwide.",
-    image: "/placeholder.svg", // Remove query params, use width/height props instead
+    image: "/educationH.jpg",
     impact: "10,000+ children educated",
     category: "Education",
   },
   {
     id: 2,
-    title: "Clean Water Initiative",
-    description: "Building wells and water purification systems in communities lacking access to clean water.",
-    image: "/placeholder.svg",
-    impact: "50+ wells built",
+    title: "Health",
+    description: "Our commitment to healthcare reflects our dedication to compassion, solidarity, and creating lasting change.",
+    image: "/healthH.jpg",
+    impact: "5000+ people helped",
     category: "Health",
   },
   {
     id: 3,
-    title: "Emergency Relief",
-    description: "Rapid response support for communities affected by natural disasters and emergencies.",
-    image: "/placeholder.svg",
+    title: "Nutrition and Aid",
+    description: "Our commitment to nutrition and aid reflects a dedication to combating food insecurity, and  community resilience.  ",
+    image: "/nutritionH.jpg",
     impact: "25,000+ people helped",
     category: "Emergency",
   },
@@ -70,11 +70,11 @@ export function FeaturedPrograms() {
                   <Image
                     src={program.image || "/placeholder.svg"}
                     alt={program.title}
-                    width={600}
+                    width={300}
                     height={400}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-1 left-1">
                     <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {program.category}
                     </span>

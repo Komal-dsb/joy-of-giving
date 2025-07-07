@@ -14,7 +14,7 @@ export function AboutHero() {
               <span className="text-red-600 block">Joy of Giving</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-              Founded on the belief that every person deserves hope, dignity, and opportunity, we&aposve been creating
+              Founded on the belief that every person deserves hope, dignity, and opportunity, we have been creating
               positive change in communities worldwide since 2018.
             </p>
             <div className="grid grid-cols-2 gap-6">
@@ -36,7 +36,7 @@ export function AboutHero() {
             className="relative"
           >
             <Image
-              src="/placeholder.svg?height=500&width=600"
+              src="/about-1.jpg"
               alt="Joy of Giving team working with community members"
               height={300}
               width={600}

@@ -14,7 +14,7 @@ const timelineEvents = [
   {
     year: "2019",
     title: "First International Program",
-    description: "Launched our first education program in rural Kenya, building 3 schools and serving 500 children.",
+    description: "Launched our first education program in rural area, building 3 schools and serving 500 children.",
     milestone: "500 Children Served",
   },
   {
@@ -25,9 +25,9 @@ const timelineEvents = [
   },
   {
     year: "2021",
-    title: "Clean Water Initiative",
-    description: "Launched our clean water program, building our first 25 wells across 3 countries.",
-    milestone: "25 Wells Built",
+    title: "Nutrition and Aid",
+    description: "Nutrition and aid go beyond merely providing meals; they ensure that everyone has access to essential resources for a healthy life.",
+    milestone: "5000+ people helped",
   },
   {
     year: "2022",
@@ -38,7 +38,7 @@ const timelineEvents = [
   {
     year: "2023",
     title: "Major Milestone",
-    description: "Reached 100,000 lives impacted across 40 countries, with 2,000 active volunteers.",
+    description: "Reached 100,000 lives impacted across nation, with 2,000 active volunteers.",
     milestone: "100K Lives Impacted",
   },
   {

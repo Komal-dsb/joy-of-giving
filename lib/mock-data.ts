@@ -218,43 +218,92 @@ export const mockAnnouncements = [
   },
 ]
 
-export const mockTeamMembers = [
+export const TeamLeaders = [
   {
     id: 1,
-    name: "Dr. Amanda Foster",
-    role: "Executive Director",
-    bio: "Dr. Foster brings over 15 years of experience in international development and nonprofit management. She holds a PhD in Public Health from Harvard University.",
-    image: "/placeholder.svg?height=300&width=300",
-    email: "amanda.foster@joyofgiving.org",
-    linkedin: "https://linkedin.com/in/amandafoster",
+    name: "Davinder Singh​",
+    role: "Founder & Marketing Head​",
+    image: "/davinder-L.png",
+   
+    
   },
   {
     id: 2,
-    name: "James Mitchell",
-    role: "Program Director",
-    bio: "James oversees all our field programs and has extensive experience in project management across Africa and Asia. He speaks five languages fluently.",
-    image: "/placeholder.svg?height=300&width=300",
-    email: "james.mitchell@joyofgiving.org",
-    linkedin: "https://linkedin.com/in/jamesmitchell",
+    name: "Manish Taneja",
+    role: "Director & Chief Financial Officer",
+    image: "/manish-L.jpg",
+  
+  
+  },
+ 
+]
+
+export const TeamVolunteers = [
+  {
+    id: 1,
+    name: "Vinay Sachdeva​",
+  
+    image: "/volunteers/vinay-V.jpg",
+   
+    
+  },
+  {
+    id: 2,
+    name: "Vipul Kathuria",
+  
+    image: "/volunteers/VIpul-V.jpg",
+  
+  
   },
   {
     id: 3,
-    name: "Maria Santos",
-    role: "Finance Director",
-    bio: "Maria ensures financial transparency and accountability. She is a CPA with 12 years of experience in nonprofit financial management.",
-    image: "/placeholder.svg?height=300&width=300",
-    email: "maria.santos@joyofgiving.org",
-    linkedin: "https://linkedin.com/in/mariasantos",
+    name: "Amit Wadhwa​",
+  
+    image: "/volunteers/Amit-V.jpg",
+   
+    
   },
   {
     id: 4,
-    name: "David Kim",
-    role: "Communications Director",
-    bio: "David leads our communications and outreach efforts. He has a background in journalism and digital marketing with a passion for storytelling.",
-    image: "/placeholder.svg?height=300&width=300",
-    email: "david.kim@joyofgiving.org",
-    linkedin: "https://linkedin.com/in/davidkim",
+    name: "Bhavik Wadhwa",
+   
+    image: "/volunteers/Bhavik-V.jpg",
+  
+  
   },
+  {
+    id: 5,
+    name: "Kulbhushan​",
+   
+    image: "/volunteers/kulbhusan-V.jpg",
+   
+    
+  },
+  {
+    id: 6,
+    name: "Atul Ahuja",
+ 
+    image: "/volunteers/atul-V.png",
+  
+  
+  },
+  {
+    id: 7,
+    name: "Anupma Hasija​",
+  
+    image: "/volunteers/anupma-V.jpg",
+   
+    
+  },
+  {
+    id: 8,
+    name: "Harish Panwar",
+   
+    image: "/volunteers/harish-V.jpg",
+  
+  
+  },
+ 
 ]
 
 export const mockGalleryItems = [

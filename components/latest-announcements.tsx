@@ -21,9 +21,9 @@ const announcements = [
   },
   {
     id: 2,
-    title: "New School Opens in Rural Kenya",
+    title: "Providing Essential Resources",
     excerpt:
-      "Thanks to your generous donations, we have successfully opened a new primary school serving 300 children in rural Kenya.",
+      "At The Joy of Giving, we believe that education is a powerful tool for transformation and growth. It provides children, especially those from underprivileged backgrounds or who have faced trauma, with the essential skills and opportunities needed to build a better future.",
     date: "2024-01-10",
     category: "Education",
     isUrgent: false,

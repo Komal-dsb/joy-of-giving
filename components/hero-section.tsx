@@ -86,17 +86,17 @@ export function HeroSection() {
             className="mt-12"
           >
             <button className="group flex items-center justify-center mx-auto">
-              <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 hover:bg-white/30 transition-all duration-300">
+              {/* <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 hover:bg-white/30 transition-all duration-300">
                 <Play className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
                 <span className="text-white font-medium">Watch Our Story</span>
-              </div>
+              </div> */}
             </button>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
@@ -113,7 +113,7 @@ export function HeroSection() {
             className="w-1 h-3 bg-white rounded-full mt-2"
           />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </section>
   )
 }

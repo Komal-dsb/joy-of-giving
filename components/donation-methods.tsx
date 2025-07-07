@@ -6,7 +6,7 @@ import { useRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Smartphone, Building, QrCode } from "lucide-react"
-import Image from "next/image" // Import Next.js Image
+import Image from "next/image" 
 
 export function DonationMethods() {
   const ref = useRef(null)
@@ -48,7 +48,7 @@ export function DonationMethods() {
                 <div className="bg-gray-50 p-4 rounded-lg space-y-3">
                   <div className="flex justify-between">
                     <span className="font-medium text-gray-700">Bank Name:</span>
-                    <span className="text-gray-900">Hope Community Bank</span>
+                    <span className="text-gray-900">Yes Bank</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium text-gray-700">Account Name:</span>
@@ -58,13 +58,14 @@ export function DonationMethods() {
                     <span className="font-medium text-gray-700">Account Number:</span>
                     <span className="text-gray-900 font-mono">1234567890</span>
                   </div>
+                 
                   <div className="flex justify-between">
-                    <span className="font-medium text-gray-700">Routing Number:</span>
-                    <span className="text-gray-900 font-mono">987654321</span>
+                    <span className="font-medium text-gray-700">IFSC code:</span>
+                    <span className="text-gray-900 font-mono">YESB0000109</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="font-medium text-gray-700">SWIFT Code:</span>
-                    <span className="text-gray-900 font-mono">HCBKUS33</span>
+                   <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">Branch::</span>
+                    <span className="text-gray-900 font-mono">Mohali, Punjab</span>
                   </div>
                 </div>
 
@@ -75,9 +76,7 @@ export function DonationMethods() {
                   </p>
                 </div>
 
-                <Button className="w-full bg-transparent" variant="outline">
-                  Copy Bank Details
-                </Button>
+               
               </CardContent>
             </Card>
           </motion.div>
@@ -101,7 +100,7 @@ export function DonationMethods() {
                 <div className="flex justify-center">
                   <div className="bg-white p-4 rounded-lg border-2 border-gray-200">
                     <Image
-                      src="/placeholder.svg"
+                      src="/fakeQr.jpg"
                       alt="Donation QR Code"
                       width={200}
                       height={200}
@@ -117,30 +116,30 @@ export function DonationMethods() {
                     <div className="bg-gray-50 p-3 rounded-lg flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <Smartphone className="h-5 w-5 text-green-600" />
-                        <span className="font-medium">Venmo</span>
+                        <span className="font-medium">GooglePay</span>
                       </div>
-                      <span className="text-gray-600">@JoyOfGiving</span>
+                      <span className="text-gray-600"> test@upi</span>
                     </div>
 
                     <div className="bg-gray-50 p-3 rounded-lg flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <Smartphone className="h-5 w-5 text-blue-600" />
-                        <span className="font-medium">PayPal</span>
+                        <span className="font-medium">PhonePay</span>
                       </div>
-                      <span className="text-gray-600">donate@joyofgiving.org</span>
+                      <span className="text-gray-600"> test@upi</span>
                     </div>
 
                     <div className="bg-gray-50 p-3 rounded-lg flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <Smartphone className="h-5 w-5 text-purple-600" />
-                        <span className="font-medium">Zelle</span>
+                        <span className="font-medium">Paytm</span>
                       </div>
-                      <span className="text-gray-600">+1 (555) 123-4567</span>
+                      <span className="text-gray-600"> test@upi</span>
                     </div>
                   </div>
                 </div>
 
-                <Button className="w-full bg-red-600 hover:bg-red-700">Open Mobile Wallet</Button>
+              
               </CardContent>
             </Card>
           </motion.div>
