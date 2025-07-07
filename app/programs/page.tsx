@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { BookOpen, Heart, Utensils, Home, Users } from "lucide-react";
+import { BookOpen, Heart, Utensils, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
