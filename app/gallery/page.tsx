@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
-
+import galleryItems from "@/components/gallery-images";
 import { Button } from "@/components/ui/button";
+
+
 type GalleryItem = {
   id: number;
   type: "image" | "video";
@@ -23,53 +25,14 @@ const Gallery = () => {
     transition: { duration: 0.6 },
   };
 
-  const galleryItems: GalleryItem[] = [
-    {
-      id: 1,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=400&fit=crop",
-      category: "education",
-    },
-    {
-      id: 2,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
-      category: "healthcare",
-    },
-    {
-      id: 3,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&h=400&fit=crop",
-      category: "nutrition and aid",
-    },
-
-    {
-      id: 4,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-      category: "volunteer",
-    },
-    {
-      id: 5,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop",
-      category: "nutrition and aid",
-    },
-
-    {
-      id: 6,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?w=600&h=400&fit=crop",
-      category: "education",
-    },
-  ];
+  
 
   const categories = [
     { id: "all", label: "All" },
     { id: "education", label: "Education" },
     { id: "healthcare", label: "Healthcare" },
     { id: "food", label: "Nutrition and Aid" },
-    { id: "volunteer", label: "Volunteers" },
+    { id: "volunteers", label: "Volunteers" },
   ];
 
   const filteredItems =
@@ -152,9 +115,12 @@ const Gallery = () => {
           viewport={{ once: true }}
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
             {filteredItems.map((item) => (
-              <div key={item.id} className="overflow-hidden rounded-lg">
+              <div
+                key={item.id}
+                className="break-inside-avoid overflow-hidden rounded-lg"
+              >
                 <Image
                   src={item.src}
                   alt={item.category}

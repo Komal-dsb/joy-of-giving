@@ -33,7 +33,7 @@ const featuredPrograms = [
     description: "Our commitment to nutrition and aid reflects a dedication to combating food insecurity, and  community resilience.  ",
     image: "/nutritionH.jpg",
     impact: "25,000+ people helped",
-    category: "Emergency",
+    category: "Nutrition and Aid",
   },
 ]
 
