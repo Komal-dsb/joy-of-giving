@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { BookOpen, Heart, Droplets, Home, Users } from "lucide-react";
+import { BookOpen, Heart, Utensils, Home, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ const programs = [
     description:
       "Our comprehensive education program provides school supplies, scholarships, and learning resources to children in underserved communities. Education is the foundation for breaking cycles of poverty.",
     image:
-      "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=400&fit=crop",
+      "/educationP.jpg",
     impact: "2,500+ children supported",
     color: ACCENT_GRADIENTS[0],
   },
@@ -40,40 +40,30 @@ const programs = [
     description:
       "Mobile clinics and medical camps provide essential healthcare services to remote and underserved areas. From checkups to emergency care, we ensure no one is left without medical attention.",
     image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
+      "/healthP.jpg",
     impact: "15,000+ patients treated",
     color: ACCENT_GRADIENTS[1],
   },
   {
-    icon: Droplets,
-    title: "Clean Water Initiative",
-    subtitle: "Every drop counts for healthy communities",
+    icon:  Utensils,
+    title: "Nutrition and Aid",
+    subtitle: "We address nutrition and aid through a variety of initiatives",
     description:
-      "Building sustainable water systems, drilling wells, and installing purification systems to provide clean, safe drinking water to communities that need it most.",
+      "Each month, we host food camps to distribute nutritious meals and groceries to those in need. During the winter, we extend our support by providing blankets and mattresses to help the homeless and impoverished stay warm and comfortable.",
     image:
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&h=400&fit=crop",
-    impact: "50+ wells installed",
+      "/foodP.jpg",
+    impact: "5000+ prople helped",
     color: ACCENT_GRADIENTS[2],
   },
-  {
-    icon: Home,
-    title: "Shelter & Housing",
-    subtitle: "Creating safe spaces for families",
-    description:
-      "Building and renovating homes for families affected by natural disasters or living in unsafe conditions. We provide not just shelter, but hope for a better future.",
-    image:
-      "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop",
-    impact: "200+ homes built",
-    color: ACCENT_GRADIENTS[3],
-  },
+ 
   {
     icon: Users,
-    title: "Community Development",
-    subtitle: "Empowering communities to thrive",
+    title: "Disaster Response",
+    subtitle: "Disaster response goes beyond emergency aid",
     description:
-      "Training programs, microfinance initiatives, and skill development workshops that help communities become self-sufficient and create sustainable livelihoods.",
+      "We understand that disaster response is vital for ensuring the safety, recovery, and well-being of affected communities. Natural disasters can leave lasting impacts, especially on vulnerable populations, and our efforts aim to provide immediate relief and long-term support to rebuild lives.",
     image:
-      "https://images.unsplash.com/photo-1517022812141-23620dba5c23?w=600&h=400&fit=crop",
+      "/disasterP.jpg",
     impact: "1,000+ people trained",
     color: ACCENT_GRADIENTS[4],
   },
@@ -135,12 +125,12 @@ export default function Programs() {
                     <Image
                       src={program.image}
                       alt={program.title}
-                      width={600} // Choose an appropriate width for your layout
-                      height={320} // Choose an appropriate height for your layout (h-80 ≈ 320px)
+                      width={600} 
+                      height={320}
                       className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div
-                      className={`absolute inset-0 bg-gradient-to-tr ${program.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
+                      className={`absolute inset-0 bg-gradient-to-tr ${program.color} opacity-20 group-hover:opacity-10 transition-opacity duration-300`}
                     />
                     <div className="absolute bottom-6 left-6 text-white drop-shadow-lg">
                       <p className="text-lg font-semibold">{program.impact}</p>

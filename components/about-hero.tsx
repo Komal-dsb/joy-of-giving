@@ -38,11 +38,11 @@ export function AboutHero() {
             <Image
               src="/about-1.jpg"
               alt="Joy of Giving team working with community members"
-              height={300}
-              width={600}
+              height={400}
+              width={700}
               className="rounded-2xl shadow-2xl"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+            <div className="absolute -bottom-10 -left-6 bg-white p-6 rounded-xl shadow-lg">
               <div className="text-2xl font-bold text-gray-900">2018</div>
               <div className="text-gray-600">Founded</div>
             </div>

@@ -14,7 +14,7 @@ const timelineEvents = [
   {
     year: "2019",
     title: "First International Program",
-    description: "Launched our first education program in rural area, building 3 schools and serving 500 children.",
+    description: "Launched our first education program in rural area, serving 500 children.",
     milestone: "500 Children Served",
   },
   {
