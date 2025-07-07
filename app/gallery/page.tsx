@@ -1,10 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Play, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 type GalleryItem = {
   id: number;

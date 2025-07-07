@@ -212,7 +212,7 @@ const Impact = () => {
                     index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
                   }`}
                 >
-                  <img
+                  <Image
                     src={`/images/photo-${index}.jpg`}
                     alt={`Photo ${index}`}
                     width={600}
