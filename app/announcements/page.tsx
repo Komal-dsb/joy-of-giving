@@ -40,7 +40,7 @@ const Announcements = () => {
       author: "Events Team",
       image:
         "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=300&fit=crop",
-      tags: ["Event", "Fundraising", "Gala"],
+    
     },
     {
       id: 3,
@@ -54,7 +54,7 @@ const Announcements = () => {
       author: "Healthcare Team",
       image:
         "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=300&fit=crop",
-      tags: ["Healthcare", "New Program", "Peru"],
+     
     },
     {
       id: 4,
@@ -68,7 +68,7 @@ const Announcements = () => {
       author: "Volunteer Coordination",
       image:
         "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=300&fit=crop",
-      tags: ["Volunteers", "Appreciation", "Community"],
+   
     },
     {
       id: 5,
@@ -82,7 +82,7 @@ const Announcements = () => {
       author: "Education Team",
       image:
         "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=300&fit=crop",
-      tags: ["Milestone", "Education", "Achievement"],
+     
     },
     {
       id: 6,
@@ -96,7 +96,7 @@ const Announcements = () => {
       author: "Partnerships Team",
       image:
         "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&h=300&fit=crop",
-      tags: ["Partnership", "Clean Water", "Expansion"],
+     
     },
   ];
 
@@ -274,14 +274,7 @@ const Announcements = () => {
                         {announcement.excerpt}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {announcement.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                       
                       </div>
                       <div className="flex items-center justify-between text-sm text-gray-500">
                         <span>{formatDate(announcement.date)}</span>

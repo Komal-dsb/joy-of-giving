@@ -14,30 +14,30 @@ const Impact = () => {
 
   const testimonials = [
     {
-      name: "Maria Rodriguez",
-      location: "Guatemala",
+      name: "Harvinder Singh",
+      location: "Mohali",
       story:
-        "Thanks to the education program, my daughter Sofia is now the first in our family to attend university. She dreams of becoming a doctor to help our community.",
+        'Thanks to the Joy of Giving team for supporting education for those in need. Our children now have access to quality learning opportunities and resources, helping them build a brighter future. We are truly grateful for your support—it has made a real difference in our lives.',
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b5c5c5a7?w=150&h=150&fit=crop&crop=face",
+        "/educationP.jpg",
       program: "Education First",
     },
     {
       name: "Ahmed Hassan",
-      location: "Kenya",
+      location: "Mohali",
       story:
-        "The clean water well built in our village has changed everything. Our children no longer get sick from contaminated water, and they can spend more time in school.",
+        "Thanks to the Joy of Giving team for bringing the health clinic and blood donation camps to our village. Our children are healthier, and knowing that help is available in emergencies gives us peace of mind. We are truly grateful for your support—it has changed our lives for the better.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      program: "Clean Water Initiative",
+        "/healthH.jpg",
+      program: "Health center Initiative",
     },
     {
       name: "Priya Sharma",
       location: "India",
       story:
-        "The mobile clinic saved my son's life when he developed pneumonia. Without access to healthcare, we would have lost him. I'm forever grateful.",
+        "Thanks to the Joy of Giving team for providing nutrition aid to those in need. Our families now have access to healthier food, and our children are growing stronger and no longer suffer from malnutrition. We are truly grateful for your support—it has made a real difference in our lives.",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "/disasterP.jpg",
       program: "Healthcare Access",
     },
   ];
@@ -66,7 +66,7 @@ const Impact = () => {
     },
     {
       icon: TrendingUp,
-      number: "$2.4M",
+      number: "2.4M",
       label: "Funds Deployed",
       description:
         "Total value of aid and resources delivered to communities in need",
@@ -212,15 +212,9 @@ const Impact = () => {
                     index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
                   }`}
                 >
-                  <Image
-                    src={`https://images.unsplash.com/photo-${
-                      index === 0
-                        ? "1497486751825-1233686d5d80"
-                        : index === 1
-                        ? "1518495973542-4542c06a5843"
-                        : "1559757148-5c350d0d3c56"
-                    }?w=600&h=400&fit=crop`}
-                    alt={`${testimonial.program} impact`}
+                  <img
+                    src={`/images/photo-${index}.jpg`}
+                    alt={`Photo ${index}`}
                     width={600}
                     height={400}
                     className="w-full h-96 object-cover rounded-2xl shadow-2xl"
@@ -271,12 +265,12 @@ const Impact = () => {
                 color: "border-red-500",
               },
               {
-                program: "Clean Water Initiative",
+                program: "Nutrition and Aid",
                 outcomes: [
-                  "50+ water wells installed",
-                  "25,000+ people gained access to clean water",
-                  "80% reduction in waterborne illnesses",
-                  "100+ water purification systems deployed",
+                  "50+ community nutrition programs launched",
+                  "25,000+ individuals gained access to nutritious food and essential aid",
+                  "80% improvement in food security among participating households",
+                  "100+ nutrition assistance and food distribution centers established",
                 ],
                 color: "border-cyan-500",
               },
