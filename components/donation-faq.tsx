@@ -78,7 +78,7 @@ export function DonationFAQ() {
               className="mb-4"
             >
               <button
-                className="w-full text-left bg-gray-50 hover:bg-gray-100 rounded-lg p-6 transition-colors duration-200"
+                className="w-full text-left bg-red-50 hover:bg-red-100 rounded-lg p-6 transition-colors duration-200"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex justify-between items-center">
@@ -95,7 +95,7 @@ export function DonationFAQ() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.1 }}
                     className="mt-4 pt-4 border-t border-gray-200"
                   >
                     <p className="text-gray-600 leading-relaxed">{faq.answer}</p>

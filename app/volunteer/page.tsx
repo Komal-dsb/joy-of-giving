@@ -96,7 +96,7 @@ const Volunteer = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-indigo-50 to-blue-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -187,7 +187,7 @@ const Volunteer = () => {
       </section>
 
       {/* Volunteer Opportunities */}
-      <section className="py-20 bg-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -208,7 +208,7 @@ const Volunteer = () => {
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-indigo-100 p-3 rounded-full">
+                      <div className="bg-red-50 p-3 rounded-full">
                         <opportunity.icon className="w-6 h-6 text-red-600" />
                       </div>
                       <div className="flex-1">

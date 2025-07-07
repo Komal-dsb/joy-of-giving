@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -265,7 +265,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-red-50">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"

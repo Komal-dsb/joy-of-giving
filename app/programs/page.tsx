@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 // Color palette and gradients aligned with About page
-const GRADIENT_BG = "bg-gradient-to-br from-indigo-50 to-blue-100";
+const GRADIENT_BG = "bg-gradient-to-br from-red-50 to-red-100";
 const SECTION_BG = "bg-white";
 const ACCENT_GRADIENTS = [
   "from-indigo-500 to-blue-600",
