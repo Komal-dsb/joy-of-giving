@@ -166,8 +166,9 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto my-10  p-4">
-      <Card className="shadow-lg bg-gradient-to-br from-red-50 to-red-100">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
+    <div className="w-full max-w-2xl mx-auto py-10 p-4">
+      <Card className="shadow-lg ">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold text-red-600">Create New Announcement</CardTitle>
           <CardDescription className="text-gray-900">
@@ -296,6 +297,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
           </form>
         </CardContent>
       </Card>
+    </div>
     </div>
   )
 }
