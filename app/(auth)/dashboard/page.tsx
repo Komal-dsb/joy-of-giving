@@ -18,7 +18,7 @@ import {
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "lucide-react"
+
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { supabase } from "@/lib/supabase"
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
                           <TableHead className="font-semibold">Description</TableHead>
                           <TableHead className="font-semibold">Venue</TableHead>
                           <TableHead className="font-semibold">Date</TableHead>
-                          <TableHead className="font-semibold">Status</TableHead>
+                        
                           <TableHead className="font-semibold">Brochure</TableHead>
                           <TableHead className="font-semibold text-center">Actions</TableHead>
                         </TableRow>
@@ -318,17 +318,7 @@ export default function AdminDashboard() {
                             <TableCell>
                               <div className="text-sm">{formatDate(announcement.event_date)}</div>
                             </TableCell>
-                            <TableCell>
-                              <Badge
-                                className={
-                                  isUpcomingEvent(announcement.event_date)
-                                    ? "bg-green-100 text-green-700 border-green-200"
-                                    : "bg-gray-100 text-gray-700 border-gray-200"
-                                }
-                              >
-                                {isUpcomingEvent(announcement.event_date) ? "Upcoming" : "Past"}
-                              </Badge>
-                            </TableCell>
+                         
                             <TableCell>
                               {announcement.brochure_url ? (
                                 <a

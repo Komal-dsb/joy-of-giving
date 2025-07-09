@@ -197,7 +197,7 @@ const Contact = () => {
                     icon: Mail,
                     title: "Email Us",
                     content: "info@joyofgiving.org",
-                    subContent: "We&apos;ll respond within 24 hours",
+                    subContent: "We will respond within 24 hours",
                   },
                   {
                     icon: Phone,
