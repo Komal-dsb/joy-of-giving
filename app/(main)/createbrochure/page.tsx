@@ -1,6 +1,6 @@
 "use client"
 
-import { Sparkles, Wand2 } from "lucide-react"
+import { Sparkles, Upload, Wand2 } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -68,6 +68,24 @@ export default function AIBrochureGenerator() {
                     Event Date *
                   </Label>
                   <Input id="date" type="date" className="h-12 text-base" />
+                </div>
+              </div>
+
+                 <div className="space-y-2">
+                <Label htmlFor="image" className="text-base font-semibold">
+                  Event Image (Optional)
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="image"
+                    type="file"
+                    accept="image/*"
+                    className="h-12 text-base file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gradient-to-r file:from-red-600 file:to-orange-600 file:text-white hover:file:from-red-700 hover:file:to-orange-700"
+                  />
+                  <div className="flex items-center mt-2 text-sm text-gray-600">
+                    <Upload className="w-4 h-4 mr-1" />
+                    Upload an image to enhance your brochure design (JPG, PNG, WebP)
+                  </div>
                 </div>
               </div>
 

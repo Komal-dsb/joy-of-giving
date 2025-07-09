@@ -31,7 +31,7 @@ const AnnouncementsDisplay = () => {
     return words.slice(0, wordLimit).join(" ") + "..."
   }
 
-  
+ 
 
   useEffect(() => {
     fetchAnnouncements()
@@ -56,7 +56,7 @@ const AnnouncementsDisplay = () => {
   }
 
   const handleAnnouncementClick = (announcementId: string) => {
-    router.push(`/announcements/${announcementId}`)
+    router.push(`/announcement/${announcementId}`)
   }
 
   const getTypeIcon = (isUpcoming: boolean) => {
@@ -234,7 +234,11 @@ const AnnouncementsDisplay = () => {
                     >
                       <div className="relative">
                         <Image
-                          src="/joy-givingLogo.png"
+                          src={
+                            announcement.brochure_url && isImageFile(announcement.brochure_url)
+                              ? announcement.brochure_url
+                              : "/joy-givingLogo.png"
+                          }
                           alt={announcement.title}
                           width={600}
                           height={300}
@@ -309,7 +313,11 @@ const AnnouncementsDisplay = () => {
                     >
                       <div className="relative">
                         <Image
-                          src="/joy-givingLogo.png"
+                          src={
+                            announcement.brochure_url && isImageFile(announcement.brochure_url)
+                              ? announcement.brochure_url
+                              : "/joy-givingLogo.png"
+                          }
                           alt={announcement.title}
                           width={400}
                           height={200}
@@ -398,7 +406,7 @@ const AnnouncementsDisplay = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 text-white px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
+              className="flex-1 text-gray-900 px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
             />
             <button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap">
               Subscribe

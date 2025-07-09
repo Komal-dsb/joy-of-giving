@@ -201,7 +201,7 @@ export default function AdminDashboard() {
 
           {/* Stats Cards */}
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" variants={fadeInUp}>
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/announcements")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Announcements</CardTitle>
                 <FileText className="h-4 w-4 text-red-600" />
@@ -223,7 +223,7 @@ export default function AdminDashboard() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/createbrochure")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">With Brochures</CardTitle>
                 <Shield className="h-4 w-4 text-green-600" />
@@ -349,7 +349,7 @@ export default function AdminDashboard() {
                                 <Button
                                   size="sm"
                                   variant="outline"
-                                  onClick={() => router.push(`/edit-announcement/${announcement.id}`)}
+                                  onClick={() => router.push(`/editannouncement/${announcement.id}`)}
                                   className="h-8 w-8 p-0 hover:bg-blue-50 hover:border-blue-200"
                                 >
                                   <Edit className="w-3 h-3" />

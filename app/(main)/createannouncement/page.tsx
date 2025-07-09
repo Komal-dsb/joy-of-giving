@@ -4,12 +4,12 @@ import type React from "react"
 
 import { useState } from "react"
 import { Button} from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle, AlertCircle, Upload, Loader2, Sparkles } from "lucide-react"
+import { CheckCircle, AlertCircle, Upload, Loader2 } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementFormData } from "@/components/types/announcement"
 
@@ -291,7 +291,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
             )}
 
             {/* Submit Button */}
-            <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 py-3 text-base font-medium" disabled={isSubmitting}>
+            <Button type="submit" className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 text-base font-medium" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />

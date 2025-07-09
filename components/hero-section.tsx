@@ -12,7 +12,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bgimg.jpg"
+          src="/gallery/education-6.jpg"
           alt="Children smiling and playing together"
           fill
           priority
@@ -78,42 +78,11 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          {/* Video Play Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="mt-12"
-          >
-            <button className="group flex items-center justify-center mx-auto">
-              {/* <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 hover:bg-white/30 transition-all duration-300">
-                <Play className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
-                <span className="text-white font-medium">Watch Our Story</span>
-              </div> */}
-            </button>
-          </motion.div>
+        
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            className="w-1 h-3 bg-white rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div> */}
+      
     </section>
   )
 }
