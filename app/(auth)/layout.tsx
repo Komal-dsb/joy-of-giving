@@ -1,12 +1,12 @@
+
+
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
-import "./globals.css"
-import { Navigation } from "@/components/navigation"
-import { AnnouncementBar } from "@/components/announcement-bar"
-import { Footer } from "@/components/footer"
+import "../styles/globals.css"
 import { Providers } from "@/components/providers"
 import { Toaster } from "@/components/ui/sonner"
+import { Poppins } from "next/font/google"
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode
@@ -108,10 +108,9 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Providers>
           <div className="min-h-screen flex flex-col">
-            <AnnouncementBar />
-            <Navigation />
+           
             <main className="flex-1">{children}</main>
-            <Footer />
+          
           </div>
         </Providers>
           <Toaster />
@@ -119,3 +118,6 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
