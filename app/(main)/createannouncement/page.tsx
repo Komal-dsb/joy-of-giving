@@ -166,11 +166,11 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <Card className="shadow-lg">
+    <div className="w-full max-w-2xl mx-auto my-10  p-4">
+      <Card className="shadow-lg bg-gradient-to-br from-red-50 to-red-100">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-primary">Create New Announcement</CardTitle>
-          <CardDescription className="text-base">
+          <CardTitle className="text-2xl font-bold text-red-600">Create New Announcement</CardTitle>
+          <CardDescription className="text-gray-900">
             Share something amazing with your community! Fill out the details below to create an engaging announcement.
             ✨
           </CardDescription>
@@ -180,7 +180,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Title Field */}
             <div className="space-y-2">
-              <Label htmlFor="title" className="text-sm font-medium">
+              <Label htmlFor="title" className="text-red-600 font-medium">
                 Announcement Title *
               </Label>
               <Input
@@ -189,14 +189,14 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
                 placeholder="Give your announcement a catchy title..."
                 value={formData.title}
                 onChange={(e) => handleInputChange("title", e.target.value)}
-                className="w-full"
+                className="w-full text-gray-900"
                 disabled={isSubmitting}
               />
             </div>
 
             {/* Description Field */}
             <div className="space-y-2">
-              <Label htmlFor="description" className="text-sm font-medium">
+              <Label htmlFor="description" className="text-red-600 font-medium">
                 Description *
               </Label>
               <Textarea
@@ -204,14 +204,14 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
                 placeholder="Tell everyone what makes this announcement special! Share all the exciting details..."
                 value={formData.description}
                 onChange={(e) => handleInputChange("description", e.target.value)}
-                className="w-full min-h-[120px] resize-none"
+                className="w-full min-h-[120px] resize-none text-gray-900"
                 disabled={isSubmitting}
               />
             </div>
 
             {/* Event/Venue Field */}
             <div className="space-y-2">
-              <Label htmlFor="eventVenue" className="text-sm font-medium">
+              <Label htmlFor="eventVenue" className="text-red-600 font-medium">
                 Event/Venue *
               </Label>
               <Input
@@ -220,14 +220,14 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
                 placeholder="Where will this amazing event take place?"
                 value={formData.eventVenue}
                 onChange={(e) => handleInputChange("eventVenue", e.target.value)}
-                className="w-full"
+                className="w-full text-gray-900"
                 disabled={isSubmitting}
               />
             </div>
 
             {/* Event Date Field */}
             <div className="space-y-2">
-              <Label htmlFor="eventDate" className="text-sm font-medium">
+              <Label htmlFor="eventDate" className="text-red-600 font-medium">
                 Event Date *
               </Label>
               <Input
@@ -235,7 +235,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
                 type="date"
                 value={formData.eventDate}
                 onChange={(e) => handleInputChange("eventDate", e.target.value)}
-                className="w-full"
+                className="w-full text-gray-900"
                 disabled={isSubmitting}
                 min={new Date().toISOString().split("T")[0]} // Prevent selecting past dates
               />
@@ -244,7 +244,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
 
             {/* Brochure Upload Field */}
             <div className="space-y-2">
-              <Label htmlFor="brochure" className="text-sm font-medium">
+              <Label htmlFor="brochure" className="text-red-600 font-medium">
                 Brochure (Optional)
               </Label>
               <div className="relative">
@@ -253,11 +253,11 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
                   type="file"
                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                   onChange={handleFileChange}
-                  className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                  className=" w-full  file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-primary-foreground hover:file:bg-red-700"
                   disabled={isSubmitting}
                 />
                 <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                  <Upload className="w-3 h-3 mr-1" />
+                  <Upload className="w-3 h-3  mr-1" />
                   Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)
                 </div>
               </div>
@@ -283,7 +283,7 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
             )}
 
             {/* Submit Button */}
-            <Button type="submit" className="w-full py-3 text-base font-medium" disabled={isSubmitting}>
+            <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 py-3 text-base font-medium" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />

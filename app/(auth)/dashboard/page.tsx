@@ -176,12 +176,12 @@ export default function AdminDashboard() {
               <p className="text-gray-600">Manage your announcements and events efficiently ✨</p>
             </div>
             <div className="flex gap-3">
-              <Button onClick={() => router.push("/")} className="bg-red-600 hover:bg-red-700 flex items-center gap-2">
+              <Button onClick={() => router.push("/createannouncement")} className="bg-red-600 hover:bg-red-700 flex items-center gap-2">
                 <Plus className="w-4 h-4" />
                 Create Announcement
               </Button>
               <Button
-                onClick={() => router.push("/create-brochure")}
+                onClick={() => router.push("/createbrochure")}
                 variant="outline"
                 className="bg-red-600 text-white hover:text-white hover:bg-red-700 flex items-center gap-2"
               >

@@ -20,6 +20,10 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
 
+  // Hardcoded credentials in local state
+  const ADMIN_USERNAME = "admin"
+  const ADMIN_PASSWORD = "admin123"
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -35,11 +39,8 @@ export default function LoginPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     try {
-      // Get stored credentials from localStorage
-      const storedUser = localStorage.getItem("username")
-      const storedPass = localStorage.getItem("password")
-
-      if (username === storedUser && password === storedPass) {
+      // Check against hardcoded credentials
+      if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
         localStorage.setItem("isAuthenticated", "true")
 
         // Show success state briefly before redirect
@@ -137,6 +138,8 @@ export default function LoginPage() {
                       </button>
                     </div>
                   </div>
+
+              
 
                   {/* Error Message */}
                   {error && (
