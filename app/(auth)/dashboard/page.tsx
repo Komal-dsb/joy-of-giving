@@ -41,7 +41,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     checkAuth()
-  }, [])
+  })
 
   useEffect(() => {
     if (isAuthenticated) {
