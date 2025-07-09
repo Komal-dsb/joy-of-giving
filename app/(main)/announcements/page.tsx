@@ -380,7 +380,7 @@ const AnnouncementsDisplay = () => {
           >
             <Megaphone className="w-16 h-16 text-gray-400 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              No Announcements Yet
+              No Announcements  Yet
             </h2>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
               Stay tuned! Amazing events and announcements are coming soon.
