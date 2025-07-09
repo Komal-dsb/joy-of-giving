@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import {
@@ -41,13 +41,9 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     checkAuth()
-  })
+  },[])
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchAnnouncements()
-    }
-  }, [isAuthenticated])
+  
 
   const checkAuth = () => {
     const authStatus = localStorage.getItem("isAuthenticated")
@@ -60,7 +56,7 @@ export default function AdminDashboard() {
     setIsLoading(false)
   }
 
-  const fetchAnnouncements = async () => {
+  const fetchAnnouncements = useCallback(async () => {
     try {
       setLoadingAnnouncements(true)
       setError(null)
@@ -78,7 +74,13 @@ export default function AdminDashboard() {
     } finally {
       setLoadingAnnouncements(false)
     }
-  }
+  },[])
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchAnnouncements()
+    }
+  }, [isAuthenticated, fetchAnnouncements])
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this announcement? This action cannot be undone.")) {
