@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle, AlertCircle, Upload, Loader2 } from "lucide-react"
+import { CheckCircle, AlertCircle, Upload, Loader2, Sparkles } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementFormData } from "@/components/types/announcement"
 
@@ -168,14 +168,21 @@ const uploadBrochure = async (file: File): Promise<string | null> => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
     <div className="w-full max-w-2xl mx-auto py-10 p-4">
-      <Card className="shadow-lg ">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-red-600">Create New Announcement</CardTitle>
-          <CardDescription className="text-gray-900">
-            Share something amazing with your community! Fill out the details below to create an engaging announcement.
+       <div className="text-center mb-12">
+        
+
+         
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+           Create new{" "}
+            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent"> Announcement</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+           Share something amazing with your community! Fill out the details below to create an engaging announcement.
             ✨
-          </CardDescription>
-        </CardHeader>
+          </p>
+        </div>
+      <Card className="shadow-lg ">
+       
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">

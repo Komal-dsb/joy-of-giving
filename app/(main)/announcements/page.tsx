@@ -398,7 +398,7 @@ const AnnouncementsDisplay = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 text-gray-900 px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
+              className="flex-1 text-white px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
             />
             <button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap">
               Subscribe
