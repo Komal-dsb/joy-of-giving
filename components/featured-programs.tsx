@@ -50,7 +50,7 @@ export function FeaturedPrograms() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Programs</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-6">Our Programs</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how we&apos;re making a difference through our targeted programs designed to address the most pressing
             needs in communities worldwide.

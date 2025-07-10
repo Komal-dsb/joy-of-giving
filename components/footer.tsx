@@ -142,23 +142,23 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <MapPin className="h-22 w-22 text-red-500" />
+                <MapPin className="h-20 w-20 text-red-500" />
                 <span className="text-gray-300 text-sm">
                   Fifth floor, Bestech Business Tower, B-505-506,
                   Parkview Residence Colony, Sector-66, Sahibzada Ajit Singh Nagar, Punjab 160062
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-6 w-6 text-red-500" />
+                <Phone className="h-4 w-4 text-red-500" />
                 <div className="flex-col">
-                <div className="text-gray-300 text-md">+91 85590-03498</div>
-                 <div className="text-gray-300 text-md">+91 98780-04383</div>
-                  <div className="text-gray-300 text-md">+91 70870-34157</div>
+                <div className="text-gray-300 text-sm">+91 85590-03498</div>
+                 <div className="text-gray-300 text-sm">+91 98780-04383</div>
+                  <div className="text-gray-300 text-sm">+91 70870-34157</div>
                   </div>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-6 w-6 text-red-500" />
-                <span className="text-gray-300 text-md">
+                <Mail className="h-4 w-4 text-red-500" />
+                <span className="text-gray-300 text-sm">
                   info@joyofgiving.org
                 </span>
               </div>

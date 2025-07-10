@@ -7,7 +7,7 @@ import {
   Shield,
   FileText,
   Calendar,
-  LogOut,
+  
   Loader2,
   Plus,
   Edit,
@@ -106,10 +106,6 @@ export default function AdminDashboard() {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated")
-    router.replace("/login")
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -188,20 +184,13 @@ export default function AdminDashboard() {
                 <FileText className="w-4 h-4" />
                 Create Brochure
               </Button>
-              <Button
-                onClick={handleLogout}
-                variant="outline"
-                className="bg-red-600 text-white hover:text-white hover:bg-red-700 flex items-center gap-2"
-              >
-                <LogOut className="w-4 h-4" />
-                Logout
-              </Button>
+           
             </div>
           </motion.div>
 
           {/* Stats Cards */}
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" variants={fadeInUp}>
-            <Card onClick={() => router.push("/announcements")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/totalannouncements")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Announcements</CardTitle>
                 <FileText className="h-4 w-4 text-red-600" />
@@ -223,7 +212,7 @@ export default function AdminDashboard() {
               </CardContent>
             </Card>
 
-            <Card onClick={() => router.push("/createbrochure")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/totalbrochures")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">With Brochures</CardTitle>
                 <Shield className="h-4 w-4 text-green-600" />

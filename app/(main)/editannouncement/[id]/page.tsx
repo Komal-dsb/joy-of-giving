@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle, AlertCircle, Upload, Loader2, ArrowLeft, Save, Trash2 } from "lucide-react"
+import { CheckCircle, AlertCircle, Upload, Loader2, Save, Trash2 } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementFormData } from "@/components/types/announcement"
 
@@ -35,6 +35,15 @@ export default function EditAnnouncementForm() {
     type: "success" | "error" | null
     text: string
   }>({ type: null, text: "" })
+  const [isPastEvent, setIsPastEvent] = useState(false)
+
+  const isDateInPast = (dateString: string): boolean => {
+    if (!dateString) return false
+    const eventDate = new Date(dateString)
+    const today = new Date()
+    today.setHours(0, 0, 0, 0) // Reset time to start of day
+    return eventDate < today
+  }
 
   useEffect(() => {
     if (announcementId) {
@@ -52,14 +61,18 @@ export default function EditAnnouncementForm() {
       }
 
       if (data) {
+        const eventDate = data.event_date
         setFormData({
           title: data.title,
           description: data.description,
           eventVenue: data.event_venue,
-          eventDate: data.event_date,
+          eventDate: eventDate,
           brochure: null, // File input will be empty initially
         })
         setCurrentBrochureUrl(data.brochure_url)
+
+        // Check if event is in the past
+        setIsPastEvent(isDateInPast(eventDate))
       }
     } catch (error) {
       console.error("Error fetching announcement:", error)
@@ -126,6 +139,9 @@ export default function EditAnnouncementForm() {
     if (!formData.eventDate.trim()) {
       return "When is this exciting event happening? Please select a date! 📅"
     }
+    if (isDateInPast(formData.eventDate)) {
+      return "⚠️ Cannot set event date to a past date. Please select a future date! 📅"
+    }
     return null
   }
 
@@ -171,9 +187,9 @@ export default function EditAnnouncementForm() {
       })
 
       // Redirect to admin dashboard after a short delay
-      setTimeout(() => {
-        router.push("/admin/dashboard")
-      }, 2000)
+     
+        router.push("/dashboard")
+    
     } catch (error) {
       console.error("Error updating announcement:", error)
       setMessage({
@@ -208,7 +224,7 @@ export default function EditAnnouncementForm() {
         text: "Announcement deleted successfully! Redirecting...",
       })
 
-     
+   
         router.push("/dashboard")
      
     } catch (error) {
@@ -238,14 +254,7 @@ export default function EditAnnouncementForm() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <Button
-            onClick={() => router.push("/dashboard")}
-            variant="outline"
-            className="mb-6 hover:bg-white/80 bg-white/60"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Dashboard
-          </Button>
+        
 
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
@@ -263,6 +272,15 @@ export default function EditAnnouncementForm() {
                 Make your changes below and save when you are ready
               </CardDescription>
             </CardHeader>
+            {isPastEvent && (
+              <Alert className="mb-4 border-amber-200 bg-red-50">
+                <AlertCircle className="h-4 w-4 text-amber-600" />
+                <AlertDescription className="text-amber-800">
+                  <strong>⚠️ Past Event Notice:</strong> This event has already occurred. You can still edit the details,
+                  but please ensure the event date is set to a future date if you want to reactivate it.
+                </AlertDescription>
+              </Alert>
+            )}
 
             <CardContent className="px-8 pb-8">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -323,11 +341,17 @@ export default function EditAnnouncementForm() {
                     type="date"
                     value={formData.eventDate}
                     onChange={(e) => handleInputChange("eventDate", e.target.value)}
-                    className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500"
+                    className={`w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 ${
+                      isDateInPast(formData.eventDate) ? "border-amber-300 bg-amber-50" : ""
+                    }`}
                     disabled={isSubmitting || isDeleting}
+                    min={new Date().toISOString().split("T")[0]} // Prevent selecting past dates
                   />
                   <div className="text-xs text-gray-500 flex items-center">
                     📅 When will this amazing event take place?
+                    {isDateInPast(formData.eventDate) && (
+                      <span className="ml-2 text-amber-600 font-medium">⚠️ Past date selected</span>
+                    )}
                   </div>
                 </div>
 
@@ -365,7 +389,7 @@ export default function EditAnnouncementForm() {
                       type="file"
                       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       onChange={handleFileChange}
-                      className="w-full h-12 border-gray-200  focus:border-red-500 focus:ring-red-500 file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-white hover:file:bg-red-700"
+                      className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-white hover:file:bg-red-700"
                       disabled={isSubmitting || isDeleting}
                     />
                     <div className="flex items-center mt-2 text-xs text-gray-500">
