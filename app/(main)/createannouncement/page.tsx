@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation"
 
 // Character limits for better UX
 const TITLE_MAX_LENGTH = 100
-const DESCRIPTION_MAX_LENGTH = 500
+const DESCRIPTION_MAX_LENGTH = 1000
 
 export default function AnnouncementForm() {
   const router = useRouter()
@@ -200,9 +200,9 @@ export default function AnnouncementForm() {
       })
 
       // Redirect to announcements page after a short delay
-      setTimeout(() => {
+      
         router.push("/announcements")
-      }, 2000)
+    
     } catch (error) {
       console.error("Error submitting form:", error)
       setMessage({
@@ -348,14 +348,14 @@ export default function AnnouncementForm() {
                   <Input
                     id="brochure"
                     type="file"
-                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                    accept=".jpg,.png"
                     onChange={handleFileChange}
                     className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-primary-foreground hover:file:bg-red-700"
                     disabled={isSubmitting}
                   />
                   <div className="flex items-center mt-2 text-xs text-gray-500">
                     <Upload className="w-3 h-3 mr-1" />
-                    Accepted formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)
+                    Accepted formats:  JPG, PNG 
                   </div>
                 </div>
                 {formData.brochure && (

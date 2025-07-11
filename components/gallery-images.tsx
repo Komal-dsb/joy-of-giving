@@ -72,7 +72,7 @@ const galleryItems: GalleryItems[] = [
   {
     id: 11,
     type: "image",
-    src: "/volunteers/cropatul-V.png",
+    src: "/volunteers/cropatul-V.PNG",
     category: "volunteers",
   },
   {

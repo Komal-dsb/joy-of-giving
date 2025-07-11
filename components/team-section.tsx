@@ -21,7 +21,7 @@ export function TeamSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Meet Our Team</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-red-600 mb-6">Meet Our Team</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our dedicated team brings together diverse expertise and shared passion for creating positive change in the
             world.

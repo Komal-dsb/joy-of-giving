@@ -14,7 +14,7 @@ const Impact = () => {
 
   const testimonials = [
     {
-      name: "Harvinder Singh",
+      name: "Harvinder ",
       location: "Mohali",
       story:
         'Thanks to the Joy of Giving team for supporting education for those in need. Our children now have access to quality learning opportunities and resources, helping them build a brighter future. We are truly grateful for your support—it has made a real difference in our lives.',
@@ -153,7 +153,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.2 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-4 text-center"
+            className="text-4xl font-bold text-red-600 mb-4 text-center"
             variants={fadeInUp}
           >
             Stories of Hope
@@ -236,7 +236,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-16 text-center"
+            className="text-4xl font-bold text-red-600 mb-16 text-center"
             variants={fadeInUp}
           >
             Program Outcomes

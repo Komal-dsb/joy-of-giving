@@ -52,7 +52,7 @@ export default function AIBrochureGenerator() {
 
   // Character limits for better UX
   const TITLE_LIMIT = 100
-  const DESCRIPTION_LIMIT = 500
+  const DESCRIPTION_LIMIT = 1000
   const VENUE_LIMIT = 150
 
   const handleInputChange = (field: keyof Omit<AIBrochureFormData, "image">, value: string) => {
@@ -448,7 +448,7 @@ export default function AIBrochureGenerator() {
                     />
                     <div className="flex items-center mt-2 text-sm text-gray-600">
                       <Upload className="w-4 h-4 mr-1" />
-                      Upload an image to enhance your brochure design (JPG, PNG, WebP, Max 10MB)
+                      Upload an image to enhance your brochure design (JPG, PNG)
                     </div>
                   </div>
                   {formData.image && (

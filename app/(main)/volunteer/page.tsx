@@ -36,7 +36,7 @@ const Volunteer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast(
+    toast.success(
       "Application Submitted! Thank you for your interest in volunteering. We'll contact you soon with next steps."
     );
     setFormData({
@@ -141,7 +141,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-16 text-center"
+            className="text-4xl font-bold text-red-600 mb-16 text-center"
             variants={fadeInUp}
           >
             Why Volunteer With Us?
@@ -196,7 +196,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-16 text-center"
+            className="text-4xl font-bold text-red-600 mb-16 text-center"
             variants={fadeInUp}
           >
             Volunteer Opportunities
@@ -247,7 +247,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-16 text-center"
+            className="text-4xl font-bold text-red-600 mb-16 text-center"
             variants={fadeInUp}
           >
             Apply to Volunteer
@@ -282,7 +282,7 @@ const Volunteer = () => {
                                 firstName: e.target.value,
                               }))
                             }
-                            placeholder="John"
+                            placeholder="Enter first name"
                             required
                             className="w-full"
                           />
@@ -305,7 +305,7 @@ const Volunteer = () => {
                                 lastName: e.target.value,
                               }))
                             }
-                            placeholder="Doe"
+                            placeholder="Enter your last name"
                             required
                             className="w-full"
                           />
@@ -328,7 +328,7 @@ const Volunteer = () => {
                                 email: e.target.value,
                               }))
                             }
-                            placeholder="john@example.com"
+                            placeholder="Enter your email address"
                             required
                             className="w-full"
                           />
@@ -351,7 +351,7 @@ const Volunteer = () => {
                                 phone: e.target.value,
                               }))
                             }
-                            placeholder="+1 (555) 123-4567"
+                            placeholder="Enter your contact number"
                             required
                             className="w-full"
                           />

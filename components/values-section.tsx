@@ -52,7 +52,7 @@ export function ValuesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Core Values</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-6">Our Core Values</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             These values guide every decision we make and every action we take in our mission to create positive change.
           </p>
