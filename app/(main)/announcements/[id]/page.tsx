@@ -85,7 +85,7 @@ export async function generateMetadata({ params }:Props):Promise<Metadata>  {
 async function AnnouncementDetailPage({
   params,
 }:Props) {
-  const url = `http://localhost:3000/announcements/${(await params).id}`;
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/announcements/${(await params).id}`;
   const title = "Check out this awesome page!";
 
   let announcement: AnnouncementFormData;
