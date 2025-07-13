@@ -38,7 +38,7 @@ export async function generateMetadata({ params }:Props):Promise<Metadata>  {
   }
 
   // Dynamic values
-  const url = `https://localhost:3000/announcements/${(await params).id}`; 
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/announcements/${(await params).id}`; 
   const title = `${announcement.title} | Joy of Giving`;
   const description = announcement.description?.slice(0, 160) || "Discover the latest announcement from Joy of Giving.";
   const image = announcement.brochure_url || "joy-givingLogo.png"; 

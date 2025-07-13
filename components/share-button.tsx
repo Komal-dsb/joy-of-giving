@@ -12,7 +12,7 @@ import {
   LinkedinIcon,
 } from "next-share";
 import { useState } from "react";
-import { Button } from "@/components/ui/button"; // Adjust the path if needed
+import { Button } from "@/components/ui/button"; 
 import { motion } from "framer-motion";
 
 interface ShareButtonsProps {
