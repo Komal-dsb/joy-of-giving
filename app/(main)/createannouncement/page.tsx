@@ -13,6 +13,21 @@ import { supabase } from "@/lib/supabase"
 import type { AnnouncementFormData } from "@/components/types/announcement"
 import { useRouter } from "next/navigation"
 
+
+const initialFormData: AnnouncementFormData = {
+  title: "",
+  description: "",
+  eventVenue: "",
+  eventDate: "",
+  brochure: null,
+  tags: [],
+  author: "",
+  keywords: "",
+  created_at: "",
+  updated_at: "",
+  image_url: "",
+  brochure_url: null
+};
 // Character limits for better UX
 const TITLE_MAX_LENGTH = 100
 const DESCRIPTION_MAX_LENGTH = 1000
@@ -20,13 +35,7 @@ const DESCRIPTION_MAX_LENGTH = 1000
 export default function AnnouncementForm() {
   const router = useRouter()
 
-  const [formData, setFormData] = useState<AnnouncementFormData>({
-    title: "",
-    description: "",
-    eventVenue: "",
-    eventDate: "",
-    brochure: null,
-  })
+  const [formData, setFormData] = useState<AnnouncementFormData>(initialFormData)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState<{
@@ -180,13 +189,15 @@ export default function AnnouncementForm() {
       }
 
       // Success! Reset form and show success message
-      setFormData({
-        title: "",
-        description: "",
-        eventVenue: "",
-        eventDate: "",
-        brochure: null,
-      })
+    setFormData(prev => ({
+  ...prev,
+  title: "",
+  description: "",
+  eventVenue: "",
+  eventDate: "",
+  brochure: null,
+}));
+
 
       // Reset file input
       const fileInput = document.getElementById("brochure") as HTMLInputElement

@@ -82,7 +82,7 @@ const EventTemplate: FC<EventTemplateProps> = ({
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 font-medium text-base">
-                  {announcement.event_venue}
+                  {announcement.eventVenue}
                 </p>
               </CardContent>
             </Card>
@@ -100,7 +100,7 @@ const EventTemplate: FC<EventTemplateProps> = ({
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 font-medium text-base">
-                  {announcement.event_date}
+                  {announcement.eventDate}
                 </p>
               </CardContent>
             </Card>

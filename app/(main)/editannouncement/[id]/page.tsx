@@ -67,7 +67,7 @@ export default function EditAnnouncementForm() {
           description: data.description,
           eventVenue: data.event_venue,
           eventDate: eventDate,
-          brochure: null, // File input will be empty initially
+          brochure: null, 
         })
         setCurrentBrochureUrl(data.brochure_url)
 
