@@ -26,13 +26,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://joyofgiving.org",
+    url: "https://joy-of-giving.vercel.app",
     siteName: "Joy of Giving",
     title: "Joy of Giving - Making a Difference Together",
     description: "Join Joy of Giving in our mission to create positive change in communities worldwide.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/joy-givingLogo.png",
         width: 1200,
         height: 630,
         alt: "Joy of Giving - Making a Difference Together",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Joy of Giving - Making a Difference Together",
     description: "Join Joy of Giving in our mission to create positive change in communities worldwide.",
-    images: ["/og-image.jpg"],
+    images: ["/joy-givingLogo.png"],
   },
   robots: {
     index: true,
@@ -78,8 +78,8 @@ export default function RootLayout({
               "@type": "NGO",
               name: "Joy of Giving",
               alternateName: "JOG",
-              url: "https://joyofgiving.org",
-              logo: "https://joyofgiving.org/logo.png",
+              url: "https://joy-of-giving.vercel.app",
+              logo: "https://joyofgiving.org/joy-givingLogo.png",
               description:
                 "A nonprofit organization dedicated to creating positive change in communities worldwide through charitable giving and volunteer work.",
               address: {

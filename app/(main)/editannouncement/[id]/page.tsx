@@ -1,23 +1,36 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { useRouter, useParams } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle, AlertCircle, Upload, Loader2, Save, Trash2 } from "lucide-react"
-import { supabase } from "@/lib/supabase"
-import type { AnnouncementFormData } from "@/components/types/announcement"
+import { useState, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  CheckCircle,
+  AlertCircle,
+  Upload,
+  Loader2,
+  Save,
+  Trash2,
+} from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import type { AnnouncementFormData } from "@/components/types/announcement";
 
 export default function EditAnnouncementForm() {
-  const router = useRouter()
-  const params = useParams()
-  const announcementId = params.id as string
+  const router = useRouter();
+  const params = useParams();
+  const announcementId = params.id as string;
 
   const [formData, setFormData] = useState<AnnouncementFormData>({
     title: "",
@@ -25,144 +38,159 @@ export default function EditAnnouncementForm() {
     eventVenue: "",
     eventDate: "",
     brochure: null,
-  })
+  });
 
-  const [currentBrochureUrl, setCurrentBrochureUrl] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentBrochureUrl, setCurrentBrochureUrl] = useState<string | null>(
+    null
+  );
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [selectedPhotos, setSelectedPhotos] = useState<File[]>([]);
+
   const [message, setMessage] = useState<{
-    type: "success" | "error" | null
-    text: string
-  }>({ type: null, text: "" })
-  const [isPastEvent, setIsPastEvent] = useState(false)
+    type: "success" | "error" | null;
+    text: string;
+  }>({ type: null, text: "" });
+  const [isPastEvent, setIsPastEvent] = useState(false);
 
   const isDateInPast = (dateString: string): boolean => {
-    if (!dateString) return false
-    const eventDate = new Date(dateString)
-    const today = new Date()
-    today.setHours(0, 0, 0, 0) // Reset time to start of day
-    return eventDate < today
-  }
+    if (!dateString) return false;
+    const eventDate = new Date(dateString);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to start of day
+    return eventDate < today;
+  };
 
   useEffect(() => {
     if (announcementId) {
-      fetchAnnouncement()
+      fetchAnnouncement();
     }
-  }, [announcementId])
+  }, [announcementId]);
 
   const fetchAnnouncement = async () => {
     try {
-      setIsLoading(true)
-      const { data, error } = await supabase.from("announcements").select("*").eq("id", announcementId).single()
+      setIsLoading(true);
+      const { data, error } = await supabase
+        .from("announcements")
+        .select("*")
+        .eq("id", announcementId)
+        .single();
 
       if (error) {
-        throw error
+        throw error;
       }
 
       if (data) {
-        const eventDate = data.event_date
+        const eventDate = data.event_date;
         setFormData({
           title: data.title,
           description: data.description,
           eventVenue: data.event_venue,
           eventDate: eventDate,
-          brochure: null, 
-        })
-        setCurrentBrochureUrl(data.brochure_url)
+          brochure: null,
+        });
+        setCurrentBrochureUrl(data.brochure_url);
 
         // Check if event is in the past
-        setIsPastEvent(isDateInPast(eventDate))
+        setIsPastEvent(isDateInPast(eventDate));
       }
     } catch (error) {
-      console.error("Error fetching announcement:", error)
+      console.error("Error fetching announcement:", error);
       setMessage({
         type: "error",
         text: "Failed to load announcement. Please try again.",
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
-  const handleInputChange = (field: keyof Omit<AnnouncementFormData, "brochure">, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+  const handleInputChange = (
+    field: keyof Omit<AnnouncementFormData, "brochure">,
+    value: string
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear any previous messages when user starts typing
     if (message.type) {
-      setMessage({ type: null, text: "" })
+      setMessage({ type: null, text: "" });
     }
-  }
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null
-    setFormData((prev) => ({ ...prev, brochure: file }))
+    const file = event.target.files?.[0] || null;
+    setFormData((prev) => ({ ...prev, brochure: file }));
 
     // Clear any previous messages when user selects a file
     if (message.type) {
-      setMessage({ type: null, text: "" })
+      setMessage({ type: null, text: "" });
     }
-  }
+  };
 
   const uploadBrochure = async (file: File): Promise<string | null> => {
     try {
-      const fileExt = file.name.split(".").pop()
-      const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
-      const filePath = `brochures/${fileName}`
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Date.now()}-${Math.random()
+        .toString(36)
+        .substring(2)}.${fileExt}`;
+      const filePath = `brochures/${fileName}`;
 
-      const { error: uploadError } = await supabase.storage.from("announcements").upload(filePath, file)
+      const { error: uploadError } = await supabase.storage
+        .from("announcements")
+        .upload(filePath, file);
 
       if (uploadError) {
-        throw uploadError
+        throw uploadError;
       }
 
       const {
         data: { publicUrl },
-      } = supabase.storage.from("announcements").getPublicUrl(filePath)
+      } = supabase.storage.from("announcements").getPublicUrl(filePath);
 
-      return publicUrl
+      return publicUrl;
     } catch (error) {
-      console.error("Error uploading file:", error)
-      throw new Error("Failed to upload brochure. Please try again.")
+      console.error("Error uploading file:", error);
+      throw new Error("Failed to upload brochure. Please try again.");
     }
-  }
+  };
 
   const validateForm = (): string | null => {
     if (!formData.title.trim()) {
-      return "Please add a wonderful title for your announcement! ✨"
+      return "Please add a wonderful title for your announcement! ✨";
     }
     if (!formData.description.trim()) {
-      return "We'd love to hear more details in the description! 📝"
+      return "We'd love to hear more details in the description! 📝";
     }
     if (!formData.eventVenue.trim()) {
-      return "Don't forget to let everyone know where the magic happens! 📍"
+      return "Don't forget to let everyone know where the magic happens! 📍";
     }
     if (!formData.eventDate.trim()) {
-      return "When is this exciting event happening? Please select a date! 📅"
+      return "When is this exciting event happening? Please select a date! 📅";
     }
     if (isDateInPast(formData.eventDate)) {
-      return "⚠️ Cannot set event date to a past date. Please select a future date! 📅"
+      return "⚠️ Cannot set event date to a past date. Please select a future date! 📅";
     }
-    return null
-  }
+    return null;
+  };
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const validationError = validateForm()
+    const validationError = validateForm();
     if (validationError) {
-      setMessage({ type: "error", text: validationError })
-      return
+      setMessage({ type: "error", text: validationError });
+      return;
     }
 
-    setIsSubmitting(true)
-    setMessage({ type: null, text: "" })
+    setIsSubmitting(true);
+    setMessage({ type: null, text: "" });
 
     try {
-      let brochureUrl: string | null = currentBrochureUrl
+      let brochureUrl: string | null = currentBrochureUrl;
 
       // Upload new brochure if provided
       if (formData.brochure) {
-        brochureUrl = await uploadBrochure(formData.brochure)
+        brochureUrl = await uploadBrochure(formData.brochure);
       }
 
       // Update in database
@@ -175,68 +203,72 @@ export default function EditAnnouncementForm() {
           event_date: formData.eventDate,
           brochure_url: brochureUrl,
         })
-        .eq("id", announcementId)
+        .eq("id", announcementId);
 
       if (dbError) {
-        throw dbError
+        throw dbError;
       }
 
       setMessage({
         type: "success",
         text: "🎉 Fantastic! Your announcement has been updated successfully!",
-      })
+      });
 
       // Redirect to admin dashboard after a short delay
-     
-        router.push("/dashboard")
-    
+
+      router.push("/dashboard");
     } catch (error) {
-      console.error("Error updating announcement:", error)
+      console.error("Error updating announcement:", error);
       setMessage({
         type: "error",
         text:
           error instanceof Error
             ? error.message
             : "Oops! Something went wrong while updating your announcement. Please give it another try! 💪",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleDelete = async () => {
-    if (!confirm("Are you sure you want to delete this announcement? This action cannot be undone.")) {
-      return
+    if (
+      !confirm(
+        "Are you sure you want to delete this announcement? This action cannot be undone."
+      )
+    ) {
+      return;
     }
 
-    setIsDeleting(true)
-    setMessage({ type: null, text: "" })
+    setIsDeleting(true);
+    setMessage({ type: null, text: "" });
 
     try {
-      const { error } = await supabase.from("announcements").delete().eq("id", announcementId)
+      const { error } = await supabase
+        .from("announcements")
+        .delete()
+        .eq("id", announcementId);
 
       if (error) {
-        throw error
+        throw error;
       }
 
       setMessage({
         type: "success",
         text: "Announcement deleted successfully! Redirecting...",
-      })
+      });
 
-   
-        router.push("/dashboard")
-     
+      router.push("/dashboard");
     } catch (error) {
-      console.error("Error deleting announcement:", error)
+      console.error("Error deleting announcement:", error);
       setMessage({
         type: "error",
         text: "Failed to delete announcement. Please try again.",
-      })
+      });
     } finally {
-      setIsDeleting(false)
+      setIsDeleting(false);
     }
-  }
+  };
 
   if (isLoading) {
     return (
@@ -246,28 +278,30 @@ export default function EditAnnouncementForm() {
           <p className="text-gray-600">Loading announcement details...</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
+    <div className="min-h-screen flex bg-gradient-to-br from-red-50 to-red-100">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-        
-
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Edit <span className="text-red-600">Announcement</span>
             </h1>
-            <p className="text-gray-600 text-lg">Update your announcement details and make it even more amazing! ✨</p>
+            <p className="text-gray-600 text-lg">
+              Update your announcement details and make it even more amazing! ✨
+            </p>
           </div>
         </div>
 
         <div className="max-w-2xl mx-auto">
           <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm">
             <CardHeader className="text-center pb-6">
-              <CardTitle className="text-2xl font-bold text-gray-900">Announcement Details</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-900">
+                Announcement Details
+              </CardTitle>
               <CardDescription className="text-base text-gray-600">
                 Make your changes below and save when you are ready
               </CardDescription>
@@ -276,8 +310,10 @@ export default function EditAnnouncementForm() {
               <Alert className="mb-4 border-amber-200 bg-red-50">
                 <AlertCircle className="h-4 w-4 text-amber-600" />
                 <AlertDescription className="text-amber-800">
-                  <strong>⚠️ Past Event Notice:</strong> This event has already occurred. You can still edit the details,
-                  but please ensure the event date is set to a future date if you want to reactivate it.
+                  <strong>⚠️ Past Event Notice:</strong> This event has already
+                  occurred. You can still edit the details, but please ensure
+                  the event date is set to a future date if you want to
+                  reactivate it.
                 </AlertDescription>
               </Alert>
             )}
@@ -286,7 +322,10 @@ export default function EditAnnouncementForm() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Title Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="title" className="text-sm font-semibold text-gray-700">
+                  <Label
+                    htmlFor="title"
+                    className="text-sm font-semibold text-gray-700"
+                  >
                     Announcement Title *
                   </Label>
                   <Input
@@ -302,14 +341,19 @@ export default function EditAnnouncementForm() {
 
                 {/* Description Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="description" className="text-sm font-semibold text-gray-700">
+                  <Label
+                    htmlFor="description"
+                    className="text-sm font-semibold text-gray-700"
+                  >
                     Description *
                   </Label>
                   <Textarea
                     id="description"
                     placeholder="Tell everyone what makes this announcement special! Share all the exciting details..."
                     value={formData.description}
-                    onChange={(e) => handleInputChange("description", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("description", e.target.value)
+                    }
                     className="w-full min-h-[140px] resize-none border-gray-200 focus:border-red-500 focus:ring-red-500"
                     disabled={isSubmitting || isDeleting}
                   />
@@ -317,7 +361,10 @@ export default function EditAnnouncementForm() {
 
                 {/* Event/Venue Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="eventVenue" className="text-sm font-semibold text-gray-700">
+                  <Label
+                    htmlFor="eventVenue"
+                    className="text-sm font-semibold text-gray-700"
+                  >
                     Event/Venue *
                   </Label>
                   <Input
@@ -325,7 +372,9 @@ export default function EditAnnouncementForm() {
                     type="text"
                     placeholder="Where will this amazing event take place?"
                     value={formData.eventVenue}
-                    onChange={(e) => handleInputChange("eventVenue", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("eventVenue", e.target.value)
+                    }
                     className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500"
                     disabled={isSubmitting || isDeleting}
                   />
@@ -333,16 +382,23 @@ export default function EditAnnouncementForm() {
 
                 {/* Event Date Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="eventDate" className="text-sm font-semibold text-gray-700">
+                  <Label
+                    htmlFor="eventDate"
+                    className="text-sm font-semibold text-gray-700"
+                  >
                     Event Date *
                   </Label>
                   <Input
                     id="eventDate"
                     type="date"
                     value={formData.eventDate}
-                    onChange={(e) => handleInputChange("eventDate", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("eventDate", e.target.value)
+                    }
                     className={`w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 ${
-                      isDateInPast(formData.eventDate) ? "border-amber-300 bg-amber-50" : ""
+                      isDateInPast(formData.eventDate)
+                        ? "border-amber-300 bg-amber-50"
+                        : ""
                     }`}
                     disabled={isSubmitting || isDeleting}
                     min={new Date().toISOString().split("T")[0]} // Prevent selecting past dates
@@ -350,7 +406,9 @@ export default function EditAnnouncementForm() {
                   <div className="text-xs text-gray-500 flex items-center">
                     📅 When will this amazing event take place?
                     {isDateInPast(formData.eventDate) && (
-                      <span className="ml-2 text-amber-600 font-medium">⚠️ Past date selected</span>
+                      <span className="ml-2 text-amber-600 font-medium">
+                        ⚠️ Past date selected
+                      </span>
                     )}
                   </div>
                 </div>
@@ -358,12 +416,18 @@ export default function EditAnnouncementForm() {
                 {/* Current Brochure Display */}
                 {currentBrochureUrl && (
                   <div className="space-y-2">
-                    <Label className="text-sm font-semibold text-gray-700">Current Brochure</Label>
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Current Brochure
+                    </Label>
                     <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">📎</div>
-                          <span className="text-sm font-medium text-blue-800">Current file attached</span>
+                          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                            📎
+                          </div>
+                          <span className="text-sm font-medium text-blue-800">
+                            Current file attached
+                          </span>
                         </div>
                         <a
                           href={currentBrochureUrl}
@@ -380,8 +444,13 @@ export default function EditAnnouncementForm() {
 
                 {/* Brochure Upload Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="brochure" className="text-sm font-semibold text-gray-700">
-                    {currentBrochureUrl ? "Replace Brochure (Optional)" : "Brochure (Optional)"}
+                  <Label
+                    htmlFor="brochure"
+                    className="text-sm font-semibold text-gray-700"
+                  >
+                    {currentBrochureUrl
+                      ? "Replace Brochure (Optional)"
+                      : "Brochure (Optional)"}
                   </Label>
                   <div className="relative">
                     <Input
@@ -409,14 +478,24 @@ export default function EditAnnouncementForm() {
                 {/* Message Display */}
                 {message.type && (
                   <Alert
-                    className={message.type === "success" ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}
+                    className={
+                      message.type === "success"
+                        ? "border-green-200 bg-green-50"
+                        : "border-red-200 bg-red-50"
+                    }
                   >
                     {message.type === "success" ? (
                       <CheckCircle className="h-4 w-4 text-green-600" />
                     ) : (
                       <AlertCircle className="h-4 w-4 text-red-600" />
                     )}
-                    <AlertDescription className={message.type === "success" ? "text-green-800" : "text-red-800"}>
+                    <AlertDescription
+                      className={
+                        message.type === "success"
+                          ? "text-green-800"
+                          : "text-red-800"
+                      }
+                    >
                       {message.text}
                     </AlertDescription>
                   </Alert>
@@ -467,6 +546,71 @@ export default function EditAnnouncementForm() {
           </Card>
         </div>
       </div>
-    </div>
-  )
+      <div className="container items-center justify-center mx-auto px-4 py-8">
+          <div className="mb-8">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+               <span className="text-red-600">Add Photos</span>
+            </h1>
+            <p className="text-gray-600 text-lg">
+              Update your announcement details add photos and make it even more amazing! ✨
+            </p>
+          </div>
+        </div>
+        {/* Choose Photos Section */}
+        <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm p-4">
+        <div className="space-y-2">
+          <Label
+            htmlFor="photos"
+            className="text-sm font-semibold text-gray-700"
+          >
+            Choose Photos (Multiple)
+          </Label>
+          <Input
+            id="photos"
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(e) => {
+              const files = e.target.files;
+              if (files) {
+                setSelectedPhotos(Array.from(files));
+              }
+            }}
+            className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-white hover:file:bg-red-700"
+            disabled={isSubmitting || isDeleting}
+          />
+          <p className="text-xs text-gray-500">
+            You can select multiple images. Accepted: JPG, PNG, JPEG (Max 10MB
+            each)
+          </p>
+
+          {/* Preview Selected Photos */}
+          {selectedPhotos.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+              {selectedPhotos.map((photo, index) => (
+                <div
+                  key={index}
+                  className="relative rounded-lg overflow-hidden border border-gray-200 shadow-sm"
+                >
+                  <img
+                    src={URL.createObjectURL(photo)}
+                    alt={`Selected ${index + 1}`}
+                    className="w-full h-32 object-cover"
+                  />
+                  <div className="absolute top-1 right-1 bg-white bg-opacity-80 text-xs px-2 py-0.5 rounded">
+                    {photo.name.length > 20
+                      ? `${photo.name.slice(0, 18)}...`
+                      : photo.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          </div>
+    </Card>
+        </div>
+     
+      </div>
+  );
 }

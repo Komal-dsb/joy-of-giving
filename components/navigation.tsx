@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Shield, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -26,26 +26,22 @@ export function Navigation() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const pathname = usePathname()
 
-  // Check authentication status
+  // Helper to check active route
+  const isActive = (href: string) =>
+    href === "/" ? pathname === href : pathname.startsWith(href)
+
   useEffect(() => {
     const checkAuth = () => {
       const authStatus = localStorage.getItem("isAuthenticated")
       setIsAuthenticated(authStatus === "true")
     }
-
-    // Check on mount
     checkAuth()
 
-    // Listen for storage changes (when user logs in/out in another tab)
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === "isAuthenticated") {
-        checkAuth()
-      }
+      if (e.key === "isAuthenticated") checkAuth()
     }
 
     window.addEventListener("storage", handleStorageChange)
-
-    // Also check periodically in case of same-tab changes
     const interval = setInterval(checkAuth, 1000)
 
     return () => {
@@ -61,57 +57,66 @@ export function Navigation() {
   }
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
+    <nav className="bg-white shadow-sm sticky top-0 z-50 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="rounded-full overflow-hidden w-20 p-2">
+            <div className="rounded-full overflow-hidden w-16 md:w-20 p-2">
               <AspectRatio ratio={1}>
-                <Image src="/joy-givingLogo.png" alt="Joy of Giving Logo" fill className="object-cover" priority />
+                <Image
+                  src="/joy-givingLogo.png"
+                  alt="Joy of Giving Logo"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </AspectRatio>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center md:gap-4 gap-2  xl:gap-10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-red-600 relative",
-                  pathname === item.href ? "text-red-600" : "text-gray-700",
+                  isActive(item.href) ? "text-red-600" : "text-gray-700"
                 )}
               >
                 {item.name}
-                {pathname === item.href && (
-                  <motion.div layoutId="activeTab" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600" />
+                {isActive(item.href) && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600"
+                  />
                 )}
               </Link>
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* CTA Buttons - Desktop */}
+          <div className="hidden lg:flex items-center  gap-2 ">
             {isAuthenticated ? (
               <>
                 <Button
                   variant="outline"
                   asChild
-                  className="border-red-200 text-red-600 hover:text-red-600 hover:bg-red-50 hover:border-red-300 bg-transparent"
+                  className="border-red-200 text-red-600 hover:bg-red-50 whitespace-nowrap"
                 >
                   <Link href="/dashboard">
-                    <Shield className="w-4 h-4 mr-2" />
+                    <Shield className="w-4 h-4" />
                     Admin Panel
                   </Link>
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={handleLogout}
-                  className="text-white bg-red-500 hover:text-white hover:bg-red-600"
+                  className="text-white bg-red-500 hover:bg-red-600"
                 >
-                  <User className="w-4 h-4 mr-2" />
+                  <User className="w-4 h-4" />
                   Logout
                 </Button>
               </>
@@ -120,7 +125,7 @@ export function Navigation() {
                 <Button variant="outline" asChild>
                   <Link href="/volunteer">Volunteer</Link>
                 </Button>
-                <Button asChild className="bg-red-600 hover:bg-red-700">
+                <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
                   <Link href="/donate">Donate Now</Link>
                 </Button>
               </>
@@ -128,36 +133,42 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
+          </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Navigation */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-200"
+            transition={{ duration: 0.1 }}
+            className="md:hidden bg-white border-t border-gray-200 px-4"
           >
-            <div className="py-4 space-y-2">
+            <div className="flex flex-col py-4 space-y-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={cn(
-                    "block px-4 py-2 text-sm font-medium rounded-md transition-colors",
-                    pathname === item.href ? "bg-red-50 text-red-600" : "text-gray-700 hover:bg-gray-50",
-                  )}
                   onClick={() => setIsOpen(false)}
+                  className={cn(
+                    "block px-4 py-2 text-sm rounded-md transition-colors",
+                    isActive(item.href)
+                      ? "bg-red-50 text-red-600"
+                      : "text-gray-700 hover:bg-gray-100"
+                  )}
                 >
                   {item.name}
                 </Link>
               ))}
 
-              {/* Mobile Admin/Auth Section */}
-              <div className="px-4 pt-4 space-y-2 border-t border-gray-100">
+              <div className=" pt-4 border-t border-gray-100 space-y-2">
                 {isAuthenticated ? (
                   <>
                     <Button
@@ -165,15 +176,14 @@ export function Navigation() {
                       className="w-full bg-red-50 border-red-200 text-red-600 hover:bg-red-100"
                       asChild
                     >
-                      <Link href="/admin/dashboard" onClick={() => setIsOpen(false)}>
+                      <Link href="/dashboard" onClick={() => setIsOpen(false)}>
                         <Shield className="w-4 h-4 mr-2" />
                         Admin Panel
                       </Link>
                     </Button>
                     <Button
-                      variant="ghost"
                       onClick={handleLogout}
-                      className="w-full text-white bg-red-500"
+                      className="w-full text-white bg-red-500 hover:bg-red-600"
                     >
                       <User className="w-4 h-4 mr-2" />
                       Logout
@@ -181,12 +191,15 @@ export function Navigation() {
                   </>
                 ) : (
                   <>
-                    <Button variant="outline" className="w-full bg-transparent" asChild>
+                    <Button variant="outline" className="w-full" asChild>
                       <Link href="/volunteer" onClick={() => setIsOpen(false)}>
                         Volunteer
                       </Link>
                     </Button>
-                    <Button className="w-full bg-red-600 hover:bg-red-700" asChild>
+                    <Button
+                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      asChild
+                    >
                       <Link href="/donate" onClick={() => setIsOpen(false)}>
                         Donate Now
                       </Link>
@@ -197,7 +210,7 @@ export function Navigation() {
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   )
 }

@@ -61,7 +61,7 @@ export default function AdminDashboard() {
       setLoadingAnnouncements(true)
       setError(null)
 
-      const { data, error } = await supabase.from("announcements").select("*").order("event_date", { ascending: true })
+      const { data, error } = await supabase.from("announcements").select("*").order("eventDate", { ascending: true })
 
       if (error) {
         throw error
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
 
   const getStats = () => {
     const total = announcements.length
-    const upcoming = announcements.filter((ann) => isUpcomingEvent(ann.event_date)).length
+    const upcoming = announcements.filter((ann) => isUpcomingEvent(ann.eventDate)).length
     const withBrochures = announcements.filter((ann) => ann.brochure_url).length
 
     return { total, upcoming, withBrochures }
@@ -299,13 +299,13 @@ export default function AdminDashboard() {
                             <TableCell className="max-w-[150px]">
                               <div className="flex items-center text-gray-600">
                                 <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
-                                <span className="truncate" title={announcement.event_venue}>
-                                  {announcement.event_venue}
+                                <span className="truncate" title={announcement.eventVenue}>
+                                  {announcement.eventVenue}
                                 </span>
                               </div>
                             </TableCell>
                             <TableCell>
-                              <div className="text-sm">{formatDate(announcement.event_date)}</div>
+                              <div className="text-sm">{formatDate(announcement.eventDate)}</div>
                             </TableCell>
                          
                             <TableCell>

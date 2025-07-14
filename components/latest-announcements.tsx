@@ -43,7 +43,7 @@ export function LatestAnnouncements() {
 
       // Transform the data to match the UI structure
       const transformedData: DisplayAnnouncement[] = (data || []).map((announcement: AnnouncementRecord) => {
-        const eventDate = new Date(announcement.event_date)
+        const eventDate = new Date(announcement.eventDate)
         const today = new Date()
         const daysUntilEvent = Math.ceil((eventDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
@@ -70,7 +70,7 @@ export function LatestAnnouncements() {
             announcement.description.length > 150
               ? announcement.description.substring(0, 150) + "..."
               : announcement.description,
-          date: announcement.event_date,
+          date: announcement.eventDate,
           category,
           isUrgent: daysUntilEvent <= 7 && daysUntilEvent >= 0, // Urgent if event is within 7 days
         }

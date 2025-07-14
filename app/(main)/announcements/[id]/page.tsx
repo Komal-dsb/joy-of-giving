@@ -105,7 +105,7 @@ async function AnnouncementDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-red-50 py-20 px-4 md:px-8">
+    <div className="w-full min-h-screen bg-red-50 py-20 px-4 md:px-8">
       <main className="flex flex-col items-center justify-center bg-red-50">
         <EventTemplate announcement={announcement} url={url} title={title} />
       </main>

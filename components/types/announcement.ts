@@ -17,8 +17,8 @@ export interface AnnouncementFormData {
     id: string
     title: string | ""
     description: string | ""
-    event_venue: string | ""
-    event_date:string | ""
+    eventVenue: string | ""
+    eventDate:string | ""
     brochure_url: string | null
     created_at: string
   }

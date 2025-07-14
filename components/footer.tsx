@@ -20,18 +20,18 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2 ">
               <Link href="/" className="flex items-center  space-x-2">
-            <div className="rounded-full overflow-hidden  w-32 h-38">
-              <AspectRatio ratio={1}>
-                <Image
-                  src="/jgFooter.png"
-                  alt="Joy of Giving Logo"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </AspectRatio>
-            </div>
-          </Link>
+                <div className="rounded-full overflow-hidden  w-32 h-38">
+                  <AspectRatio ratio={1}>
+                    <Image
+                      src="/jgFooter.png"
+                      alt="Joy of Giving Logo"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </AspectRatio>
+                </div>
+              </Link>
             </div>
             <p className="text-gray-300  text-sm">
               Creating positive change in communities worldwide through
@@ -144,22 +144,23 @@ export function Footer() {
               <div className="flex items-center space-x-2">
                 <MapPin className="h-20 w-20 text-red-500" />
                 <span className="text-gray-300 text-sm">
-                  Fifth floor, Bestech Business Tower, B-505-506,
-                  Parkview Residence Colony, Sector-66, Sahibzada Ajit Singh Nagar, Punjab 160062
+                  Fifth floor, Bestech Business Tower, B-505-506, Parkview
+                  Residence Colony, Sector-66, Sahibzada Ajit Singh Nagar,
+                  Punjab 160062
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-red-500" />
                 <div className="flex-col">
-                <div className="text-gray-300 text-sm">+91 85590-03498</div>
-                 <div className="text-gray-300 text-sm">+91 98780-04383</div>
+                  <div className="text-gray-300 text-sm">+91 85590-03498</div>
+                  <div className="text-gray-300 text-sm">+91 98780-04383</div>
                   <div className="text-gray-300 text-sm">+91 70870-34157</div>
-                  </div>
+                </div>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-red-500" />
                 <span className="text-gray-300 text-sm">
-                  info@joyofgiving.org
+                  Info@designingsolutions.co.in
                 </span>
               </div>
             </div>
@@ -168,14 +169,8 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-300 text-sm">
-            © {new Date().getFullYear()} Joy of Giving. All rights reserved. |
-            <Link href="/privacy" className="hover:text-white ml-1">
-              Privacy Policy
-            </Link>{" "}
-            |
-            <Link href="/terms" className="hover:text-white ml-1">
-              Terms of Service
-            </Link>
+            © {new Date().getFullYear()} Joy of Giving. All rights reserved. 
+          
           </p>
         </div>
       </div>

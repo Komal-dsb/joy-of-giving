@@ -11,11 +11,11 @@ export default function AdminPage() {
 
   useEffect(() => {
     // Add a small delay for better UX
-    const timer = setTimeout(() => {
+    const timer = () => {
       router.replace("/login")
-    }, 1500)
+    }
 
-    return () => clearTimeout(timer)
+  
   }, [router])
 
   const fadeInUp = {
