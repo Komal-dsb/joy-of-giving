@@ -103,7 +103,7 @@ export default function AdminAnnouncementsPage() {
         (ann) =>
           ann.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           ann.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          ann.event_venue.toLowerCase().includes(searchTerm.toLowerCase()),
+          ann.eventVenue.toLowerCase().includes(searchTerm.toLowerCase()),
       )
     }
 
@@ -113,7 +113,7 @@ export default function AdminAnnouncementsPage() {
       today.setHours(0, 0, 0, 0)
 
       filtered = filtered.filter((ann) => {
-        const eventDate = new Date(ann.event_date)
+        const eventDate = new Date(ann.eventDate)
         const isUpcoming = eventDate >= today
 
         return statusFilter === "upcoming" ? isUpcoming : !isUpcoming
@@ -124,7 +124,7 @@ export default function AdminAnnouncementsPage() {
     filtered.sort((a, b) => {
       switch (sortBy) {
         case "date":
-          return new Date(a.event_date).getTime() - new Date(b.event_date).getTime()
+          return new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime()
         case "created":
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
         case "title":
@@ -197,10 +197,10 @@ export default function AdminAnnouncementsPage() {
         [
           `"${ann.title}"`,
           `"${ann.description.replace(/"/g, '""')}"`,
-          `"${ann.event_venue}"`,
-          ann.event_date,
+          `"${ann.eventVenue}"`,
+          ann.eventDate,
           ann.created_at,
-          isUpcomingEvent(ann.event_date) ? "Upcoming" : "Past",
+          isUpcomingEvent(ann.eventDate) ? "Upcoming" : "Past",
           ann.brochure_url ? "Yes" : "No",
         ].join(","),
       ),
@@ -234,8 +234,8 @@ export default function AdminAnnouncementsPage() {
 
   const stats = {
     total: announcements.length,
-    upcoming: announcements.filter((ann) => isUpcomingEvent(ann.event_date)).length,
-    past: announcements.filter((ann) => !isUpcomingEvent(ann.event_date)).length,
+    upcoming: announcements.filter((ann) => isUpcomingEvent(ann.eventDate)).length,
+    past: announcements.filter((ann) => !isUpcomingEvent(ann.eventDate)).length,
     withBrochures: announcements.filter((ann) => ann.brochure_url).length,
   }
 
@@ -453,13 +453,13 @@ export default function AdminAnnouncementsPage() {
                             <TableCell className="max-w-[150px]">
                               <div className="flex items-center text-gray-600">
                                 <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
-                                <span className="truncate" title={announcement.event_venue}>
-                                  {announcement.event_venue}
+                                <span className="truncate" title={announcement.eventVenue}>
+                                  {announcement.eventVenue}
                                 </span>
                               </div>
                             </TableCell>
                             <TableCell>
-                              <div className="text-sm">{formatDate(announcement.event_date)}</div>
+                              <div className="text-sm">{formatDate(announcement.eventDate)}</div>
                             </TableCell>
                             <TableCell>
                               <div className="text-sm text-gray-500">{formatDateTime(announcement.created_at)}</div>
@@ -467,12 +467,12 @@ export default function AdminAnnouncementsPage() {
                             <TableCell>
                               <Badge
                                 className={
-                                  isUpcomingEvent(announcement.event_date)
+                                  isUpcomingEvent(announcement.eventDate)
                                     ? "bg-green-100 text-green-700 border-green-200"
                                     : "bg-gray-100 text-gray-700 border-gray-200"
                                 }
                               >
-                                {isUpcomingEvent(announcement.event_date) ? "Upcoming" : "Past"}
+                                {isUpcomingEvent(announcement.eventDate) ? "Upcoming" : "Past"}
                               </Badge>
                             </TableCell>
                             <TableCell>

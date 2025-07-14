@@ -10,10 +10,10 @@ export default function AdminPage() {
   const router = useRouter()
 
   useEffect(() => {
-    // Add a small delay for better UX
-    const timer = () => {
+   
+   
       router.replace("/login")
-    }
+    
 
   
   }, [router])
