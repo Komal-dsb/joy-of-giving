@@ -59,7 +59,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -74,7 +74,7 @@ export default function LoginPage() {
         >
           {/* Header */}
           <motion.div className="text-center mb-8" variants={fadeInUp}>
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-background rounded-full mb-4">
               <Lock className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h1>
@@ -104,7 +104,7 @@ export default function LoginPage() {
                         placeholder="Enter your username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        className="pl-10 h-12 border-gray-200 focus:border-red-500 focus:ring-red-500"
+                        className="pl-10 h-12 border-gray-200 focus:border-background focus:ring-background"
                         disabled={isLoading}
                         required
                       />
@@ -158,7 +158,7 @@ export default function LoginPage() {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full h-12 bg-background hover:bg-background text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={isLoading || !username.trim() || !password.trim()}
                   >
                     {isLoading ? (
@@ -192,8 +192,8 @@ export default function LoginPage() {
 
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-red-200 rounded-full opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-red-300 rounded-full opacity-30 animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-5 w-12 h-12 bg-red-400 rounded-full opacity-10 animate-pulse delay-500"></div>
+      <div className="absolute bottom-20 right-10 w-16 h-16 bg-background rounded-full opacity-30 animate-pulse delay-1000"></div>
+      <div className="absolute top-1/2 left-5 w-12 h-12 bg-background rounded-full opacity-10 animate-pulse delay-500"></div>
     </div>
   )
 }

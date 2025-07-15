@@ -229,7 +229,7 @@ export default function AnnouncementForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="w-full max-w-2xl mx-auto py-10 p-4">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
@@ -352,7 +352,7 @@ export default function AnnouncementForm() {
 
               {/* Brochure Upload Field */}
               <div className="space-y-2">
-                <Label htmlFor="brochure" className="text-red-600 font-medium">
+                <Label htmlFor="brochure" className="text-gray-900 font-medium">
                   Brochure (Optional)
                 </Label>
                 <div className="relative">

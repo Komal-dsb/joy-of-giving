@@ -51,7 +51,7 @@ export function ImpactStats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-red-600 text-white">
+    <section ref={ref} className="py-20 bg-background text-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ export function ImpactStats() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-red-600 font-bold mb-6">Our Impact in Numbers</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-6">Our Impact in Numbers</h2>
           <p className="text-xl text-red-100 max-w-3xl mx-auto">
             Every number represents a life touched, a community strengthened, and hope restored through your generous
             support.

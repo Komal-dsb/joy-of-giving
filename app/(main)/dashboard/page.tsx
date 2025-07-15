@@ -136,7 +136,7 @@ export default function AdminDashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 text-red-600 animate-spin mx-auto mb-4" />
+          <Loader2 className="w-8 h-8 text-background animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading dashboard...</p>
         </div>
       </div>
@@ -151,7 +151,7 @@ export default function AdminDashboard() {
   const stats = getStats()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial="initial"
@@ -167,19 +167,19 @@ export default function AdminDashboard() {
           >
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                Admin <span className="text-red-600">Dashboard</span>
+                Admin <span className="text-background">Dashboard</span>
               </h1>
               <p className="text-gray-600">Manage your announcements and events efficiently ✨</p>
             </div>
             <div className="flex gap-3">
-              <Button onClick={() => router.push("/createannouncement")} className="bg-red-600 hover:bg-red-700 flex items-center gap-2">
+              <Button onClick={() => router.push("/createannouncement")} className="bg-background hover:bg-background flex items-center gap-2">
                 <Plus className="w-4 h-4" />
                 Create Announcement
               </Button>
               <Button
                 onClick={() => router.push("/createbrochure")}
                 variant="outline"
-                className="bg-red-600 text-white hover:text-white hover:bg-red-700 flex items-center gap-2"
+                className="bg-background text-white hover:text-white hover:bg-background flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
                 Create Brochure
@@ -329,21 +329,21 @@ export default function AdminDashboard() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/editannouncement/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 hover:bg-blue-50 hover:border-blue-200"
+                                  className="h-8 w-8 p-0 bg-background text-white hover:bg-background hover:text-white"
                                 >
-                                  <Edit className="w-3 h-3" />
+                                  <Edit className="w-3 h-3 text-white hover:text-background" />
                                 </Button>
                                 <Button
                                   size="sm"
                                   variant="outline"
                                   onClick={() => handleDelete(announcement.id)}
                                   disabled={deletingId === announcement.id}
-                                  className="h-8 w-8 p-0 hover:bg-red-50 hover:border-red-200 text-red-600 hover:text-red-700"
+                                  className="h-8 w-8 p-0 bg-background text-white hover:bg-background hover:text-white"
                                 >
                                   {deletingId === announcement.id ? (
                                     <Loader2 className="w-3 h-3 animate-spin" />
                                   ) : (
-                                    <Trash2 className="w-3 h-3" />
+                                    <Trash2 className="w-3 h-3 text-white hover:text-white hover:bg-background" />
                                   )}
                                 </Button>
                               </div>

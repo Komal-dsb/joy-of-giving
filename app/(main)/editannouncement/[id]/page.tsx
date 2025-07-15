@@ -272,7 +272,7 @@ export default function EditAnnouncementForm() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-8 h-8 text-red-600 animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading announcement details...</p>
@@ -282,13 +282,13 @@ export default function EditAnnouncementForm() {
   }
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-red-50 to-red-100">
+    <div className="min-h-screen flex bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Edit <span className="text-red-600">Announcement</span>
+              Edit <span className="text-background">Announcement</span>
             </h1>
             <p className="text-gray-600 text-lg">
               Update your announcement details and make it even more amazing! ✨
@@ -550,7 +550,7 @@ export default function EditAnnouncementForm() {
           <div className="mb-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-               <span className="text-red-600">Add Photos</span>
+               <span className="text-background">Add Photos</span>
             </h1>
             <p className="text-gray-600 text-lg">
               Update your announcement details add photos and make it even more amazing! ✨

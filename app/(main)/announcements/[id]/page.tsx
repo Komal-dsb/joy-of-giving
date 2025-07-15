@@ -94,7 +94,7 @@ async function AnnouncementDetailPage({
   } catch (error) {
     return (
       <div className="p-8">
-        <h1 className="text-xl font-bold text-red-600">Error loading announcement</h1>
+        <h1 className="text-xl font-bold text-background">Error loading announcement</h1>
         <pre className="text-sm bg-gray-100 p-4 mt-2 rounded">{JSON.stringify(error, null, 2)}</pre>
       </div>
     );

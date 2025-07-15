@@ -25,21 +25,17 @@ export function AnnouncementBar() {
   const fetchLatestAnnouncement = async () => {
     try {
       setLoading(true)
-
-      // Get today's date in YYYY-MM-DD format
       const today = new Date().toISOString().split("T")[0]
 
-      // Fetch the latest upcoming announcement (event_date >= today)
       const { data, error } = await supabase
         .from("announcements")
         .select("*")
-        .gte("eventDate", today) 
-        .order("eventDate", { ascending: true }) 
+        .gte("eventDate", today)
+        .order("eventDate", { ascending: true })
         .limit(1)
         .single()
 
       if (error) {
-        // If no upcoming events found, don't show the bar
         if (error.code === "PGRST116") {
           setAnnouncement(null)
           setIsVisible(false)
@@ -68,7 +64,6 @@ export function AnnouncementBar() {
     const daysUntilEvent = Math.ceil((eventDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
     let message = ""
-
     if (daysUntilEvent === 0) {
       message = `📅 TODAY: ${ann.title} at ${ann.eventVenue}. Don't miss out!`
     } else if (daysUntilEvent === 1) {
@@ -76,7 +71,6 @@ export function AnnouncementBar() {
     } else if (daysUntilEvent > 1) {
       message = `🗓️ Coming Soon: ${ann.title} in ${daysUntilEvent} days at ${ann.eventVenue}`
     } else {
-      // This case should not happen since we're filtering for upcoming events
       message = `📢 Event: ${ann.title} at ${ann.eventVenue}`
     }
 
@@ -87,37 +81,40 @@ export function AnnouncementBar() {
     }
   }
 
-  const handleClose = () => {
-    setIsVisible(false)
-  }
+  const handleClose = () => setIsVisible(false)
 
-  // Don't render anything while loading or if no announcement
-  if (loading || !announcement || !isVisible) {
-    return null
-  }
+  if (loading || !announcement || !isVisible) return null
 
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ height: 0, opacity: 0 }}
+        initial={false}
         animate={{ height: "auto", opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-red-600 text-white relative overflow-hidden"
+        className="bg-background text-white overflow-hidden"
       >
-        <div className="container mx-auto px-4 py-3 relative">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 flex-1">
-              <AlertCircle className="h-4 w-4 flex-shrink-0" />
-              <p className="text-sm font-medium text-center flex-1 leading-relaxed">{announcement.message}</p>
-            
-             <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 p-1" onClick={handleClose}>
-                <X className="h-4 w-4" />
-                <span className="sr-only">Close announcement</span>
-              </Button>
+        <div className="container mx-auto px-4 py-3 relative flex items-center">
+          <AlertCircle className="h-4 w-4 mr-2 flex-shrink-0" />
+          <div className="overflow-hidden whitespace-nowrap relative flex-1">
+            <div className=" animate-marquee inline-block">
+              <p className="text-sm font-medium">{announcement.message} 
+              <span className="px-8 text-sm font-medium">{announcement.message}</span>
+               <span className="px-8 text-sm font-medium">{announcement.message}</span>
+                <span className="px-8 text-sm font-medium">{announcement.message}</span>
+              </p>
+             
             </div>
-           
           </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-white hover:bg-white/20 p-1 ml-2"
+            onClick={handleClose}
+          >
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </Button>
         </div>
       </motion.div>
     </AnimatePresence>

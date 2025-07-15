@@ -50,7 +50,7 @@ export function FeaturedPrograms() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-6">Our Programs</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-6">Our Programs</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how we&apos;re making a difference through our targeted programs designed to address the most pressing
             needs in communities worldwide.
@@ -75,7 +75,7 @@ export function FeaturedPrograms() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-1 left-1">
-                    <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-background text-white px-3 py-1 rounded-full text-sm font-medium">
                       {program.category}
                     </span>
                   </div>
@@ -84,8 +84,8 @@ export function FeaturedPrograms() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{program.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{program.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-red-600">{program.impact}</span>
-                    <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700">
+                    <span className="text-sm font-medium text-background">{program.impact}</span>
+                    <Button variant="ghost" size="sm" className="text-background hover:text-background">
                       Learn More
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Button>
@@ -102,7 +102,7 @@ export function FeaturedPrograms() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" className="hover:bg-background  hover:text-foreground" variant="outline" asChild>
             <Link href="/programs">
               View All Programs
               <ArrowRight className="ml-2 h-5 w-5" />

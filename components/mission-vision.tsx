@@ -21,7 +21,7 @@ export function MissionVision() {
           >
             <Card className="h-full text-center">
               <CardContent className="p-8">
-                <Target className="h-12 w-12 text-red-600 mx-auto mb-6" />
+                <Target className="h-12 w-12 text-background mx-auto mb-6" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed">
                   To create lasting positive change in communities worldwide by connecting generous hearts with

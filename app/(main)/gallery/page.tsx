@@ -51,7 +51,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-100 to-gray-200 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -65,7 +65,7 @@ const Gallery = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Our <span className="text-red-600">Gallery</span>
+              Our <span className="text-background">Gallery</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed"
@@ -95,8 +95,8 @@ const Gallery = () => {
                 onClick={() => setFilter(category.id)}
                 className={`rounded-full px-6 py-2 transition-all duration-300 ${
                   filter === category.id
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "text-gray-600 hover:text-blue-600 hover:border-blue-600"
+                    ? "bg-background text-white shadow-lg"
+                    : "text-white hover:text-background hover:border-background"
                 }`}
               >
                 {category.label}

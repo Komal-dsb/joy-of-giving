@@ -12,7 +12,7 @@ export function CallToAction() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-gradient-to-r from-background to-background text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -41,14 +41,14 @@ export function CallToAction() {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
+              className="bg-white backdrop-blur-sm rounded-2xl p-8 text-center"
             >
-              <Heart className="h-12 w-12 mx-auto mb-4 text-red-200" />
+              <Heart className="h-12 w-12 mx-auto mb-4 text-background" />
               <h3 className="text-2xl font-semibold mb-4">Donate Today</h3>
-              <p className="text-red-100 mb-6">
+              <p className="text-background mb-6">
                 Every donation, no matter the size, creates ripples of positive change in communities that need it most.
               </p>
-              <Button size="lg" variant="secondary" className="w-full" asChild>
+              <Button size="lg" variant="secondary" className="w-full bg-background text-foreground hover:bg-background hover:text-foreground" asChild>
                 <Link href="/donate">Make a Donation</Link>
               </Button>
             </motion.div>
@@ -57,15 +57,15 @@ export function CallToAction() {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center"
+              className="bg-white backdrop-blur-sm rounded-2xl p-8 text-center"
             >
-              <Users className="h-12 w-12 mx-auto mb-4 text-red-200" />
+              <Users className="h-12 w-12 mx-auto mb-4 text-background" />
               <h3 className="text-2xl font-semibold mb-4">Volunteer With Us</h3>
-              <p className="text-red-100 mb-6">
+              <p className="text-background mb-6">
                 Share your time, skills, and passion to directly impact lives and be part of our growing community of
                 changemakers.
               </p>
-              <Button size="lg" variant="secondary" className="w-full" asChild>
+              <Button size="lg" variant="secondary" className="w-full bg-background text-foreground hover:bg-background hover:text-foreground" asChild>
                 <Link href="/volunteer">Join Our Team</Link>
               </Button>
             </motion.div>

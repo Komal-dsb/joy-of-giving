@@ -1,6 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import { TrendingUp, Users, Heart, Award, Quote } from "lucide-react";
+import {
+  TrendingUp,
+  Users,
+  Heart,
+  Award,
+  Quote,
+  ArrowRight,
+} from "lucide-react";
 import Image from "next/image";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,9 +24,8 @@ const Impact = () => {
       name: "Harvinder ",
       location: "Mohali",
       story:
-        'Thanks to the Joy of Giving team for supporting education for those in need. Our children now have access to quality learning opportunities and resources, helping them build a brighter future. We are truly grateful for your support—it has made a real difference in our lives.',
-      image:
-        "/educationP.jpg",
+        "Thanks to the Joy of Giving team for supporting education for those in need. Our children now have access to quality learning opportunities and resources, helping them build a brighter future. We are truly grateful for your support—it has made a real difference in our lives.",
+      image: "/educationP.jpg",
       program: "Education First",
     },
     {
@@ -27,8 +33,7 @@ const Impact = () => {
       location: "Mohali",
       story:
         "Thanks to the Joy of Giving team for bringing the health clinic and blood donation camps to our village. Our children are healthier, and knowing that help is available in emergencies gives us peace of mind. We are truly grateful for your support—it has changed our lives for the better.",
-      image:
-        "/healthH.jpg",
+      image: "/healthH.jpg",
       program: "Health center Initiative",
     },
     {
@@ -36,8 +41,7 @@ const Impact = () => {
       location: "India",
       story:
         "Thanks to the Joy of Giving team for providing nutrition aid to those in need. Our families now have access to healthier food, and our children are growing stronger and no longer suffer from malnutrition. We are truly grateful for your support—it has made a real difference in our lives.",
-      image:
-        "/disasterP.jpg",
+      image: "/disasterP.jpg",
       program: "Healthcare Access",
     },
   ];
@@ -76,7 +80,7 @@ const Impact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-100 py-20 to-gray-200 pt-10 pb-10 lg:pt-4 lg:pb-4">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -85,21 +89,47 @@ const Impact = () => {
             animate: { transition: { staggerChildren: 0.1 } },
           }}
         >
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1
-              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between ">
+            {/* Image Section */}
+            <motion.div
               variants={fadeInUp}
+              className="flex justify-center md:justify-start  transform md:-translate-x-[50%]"
             >
-              Our <span className="text-red-600">Impact</span>
-            </motion.h1>
-            <motion.p
-              className="text-xl text-gray-600 leading-relaxed"
-              variants={fadeInUp}
-            >
-              Real stories of transformation, measurable outcomes, and lasting
-              change. Discover how your support creates ripples of positive
-              impact across communities worldwide.
-            </motion.p>
+              <div className="w-[300px] h-[300px]  lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden shadow-lg">
+                <Image
+                  src="/educationP.jpg"
+                  alt="Impact"
+                  width={500}
+                  height={500}
+                  className="object-fit w-full h-full"
+                />
+              </div>
+            </motion.div>
+
+            {/* Text Section */}
+            <div className="text-center pt-10 lg:pt-0 md:text-left flex-1 space-y-6">
+              <motion.h1
+                className="text-5xl md:text-6xl font-bold text-gray-900"
+                variants={fadeInUp}
+              >
+                Our <span className="text-background">Impact</span>
+              </motion.h1>
+              <motion.p
+                className="text-xl text-gray-600 leading-relaxed"
+                variants={fadeInUp}
+              >
+                Real stories of transformation, measurable outcomes, and lasting
+                change. Discover how your support creates ripples of positive
+                impact across communities worldwide.
+              </motion.p>
+              <a
+                href="#stories"
+                className="inline-flex items-center gap-2 p-4 bg-background text-white rounded-md  font-sm hover:bg-background transition"
+              >
+                Read Stories
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -125,11 +155,11 @@ const Impact = () => {
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
                   <CardContent className="pt-6">
-                    <stat.icon className="w-12 h-12 text-red-600 mx-auto mb-6" />
+                    <stat.icon className="w-12 h-12 text-background mx-auto mb-6" />
                     <h3 className="text-4xl font-bold text-gray-900 mb-2">
                       {stat.number}
                     </h3>
-                    <p className="text-lg font-semibold text-red-600 mb-3">
+                    <p className="text-lg font-semibold text-background mb-3">
                       {stat.label}
                     </p>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -144,7 +174,7 @@ const Impact = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-red-50">
+      <section id="stories" className="py-20 bg-gray-100">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -153,7 +183,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.2 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-red-600 mb-4 text-center"
+            className="text-4xl font-bold text-background mb-4 text-center"
             variants={fadeInUp}
           >
             Stories of Hope
@@ -178,7 +208,7 @@ const Impact = () => {
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                   <Card className="border-0 shadow-xl overflow-hidden">
                     <CardContent className="p-8">
-                      <Quote className="w-12 h-12 text-red-600 mb-6" />
+                      <Quote className="w-12 h-12 text-background mb-6" />
                       <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic">
                         &quot;{testimonial.story}&quot;
                       </blockquote>
@@ -198,7 +228,7 @@ const Impact = () => {
                           <p className="text-gray-600">
                             {testimonial.location}
                           </p>
-                          <p className="text-red-600 text-sm font-medium">
+                          <p className="text-background text-sm font-medium">
                             {testimonial.program}
                           </p>
                         </div>
@@ -236,7 +266,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-red-600 mb-16 text-center"
+            className="text-4xl font-bold text-background mb-16 text-center"
             variants={fadeInUp}
           >
             Program Outcomes
@@ -303,7 +333,7 @@ const Impact = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-background to-background text-white">
         <motion.div
           className="container mx-auto px-4 text-center"
           initial="initial"
@@ -326,10 +356,10 @@ const Impact = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             variants={fadeInUp}
           >
-            <button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+            <button className="bg-white text-background hover:bg-gray-100 px-8 py-4 text-lg rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
               Support Our Mission
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300">
+            <button className="border-2 border-white text-white hover:bg-white hover:text-background px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300">
               Volunteer Today
             </button>
           </motion.div>

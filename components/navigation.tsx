@@ -82,15 +82,15 @@ export function Navigation() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-red-600 relative",
-                  isActive(item.href) ? "text-red-600" : "text-gray-700"
+                  "text-sm font-medium transition-colors hover:text-background relative",
+                  isActive(item.href) ? "text-background" : "text-gray-900"
                 )}
               >
                 {item.name}
                 {isActive(item.href) && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-red-600"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-background"
                   />
                 )}
               </Link>
@@ -104,7 +104,7 @@ export function Navigation() {
                 <Button
                   variant="outline"
                   asChild
-                  className="border-red-200 text-red-600 hover:bg-red-50 whitespace-nowrap"
+                  className="border-background text-foreground hover:text-foreground hover:bg-background whitespace-nowrap"
                 >
                   <Link href="/dashboard">
                     <Shield className="w-4 h-4" />
@@ -114,7 +114,7 @@ export function Navigation() {
                 <Button
                   variant="ghost"
                   onClick={handleLogout}
-                  className="text-white bg-red-500 hover:bg-red-600"
+                  className="text-forground bg-background hover:bg-background hover:text-foreground"
                 >
                   <User className="w-4 h-4" />
                   Logout
@@ -122,10 +122,10 @@ export function Navigation() {
               </>
             ) : (
               <>
-                <Button variant="outline" asChild>
+                <Button variant="outline" className="hover:text-foreground hover:bg-background" asChild>
                   <Link href="/volunteer">Volunteer</Link>
                 </Button>
-                <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
+                <Button asChild className="bg-background hover:bg-background text-foreground">
                   <Link href="/donate">Donate Now</Link>
                 </Button>
               </>

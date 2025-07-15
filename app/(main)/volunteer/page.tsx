@@ -96,7 +96,7 @@ const Volunteer = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -110,7 +110,7 @@ const Volunteer = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Join Our <span className="text-red-600">Team</span>
+              Join Our <span className="text-background">Team</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed mb-8"
@@ -124,7 +124,7 @@ const Volunteer = () => {
               className="flex items-center justify-center space-x-2 text-lg text-gray-700"
               variants={fadeInUp}
             >
-              <Users className="w-6 h-6 text-red-600" />
+              <Users className="w-6 h-6 text-background" />
               <span>Join 500+ active volunteers making a difference</span>
             </motion.div>
           </div>
@@ -141,7 +141,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-red-600 mb-16 text-center"
+            className="text-4xl font-bold text-black mb-16 text-center"
             variants={fadeInUp}
           >
             Why Volunteer With Us?
@@ -187,7 +187,7 @@ const Volunteer = () => {
       </section>
 
       {/* Volunteer Opportunities */}
-      <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -196,7 +196,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-red-600 mb-16 text-center"
+            className="text-4xl font-bold text-background mb-16 text-center"
             variants={fadeInUp}
           >
             Volunteer Opportunities
@@ -208,8 +208,8 @@ const Volunteer = () => {
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-red-50 p-3 rounded-full">
-                        <opportunity.icon className="w-6 h-6 text-red-600" />
+                      <div className="bg-theme p-3 rounded-full">
+                        <opportunity.icon className="w-6 h-6 text-background" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -247,7 +247,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-red-600 mb-16 text-center"
+            className="text-4xl font-bold text-black mb-16 text-center"
             variants={fadeInUp}
           >
             Apply to Volunteer
@@ -257,7 +257,7 @@ const Volunteer = () => {
             <motion.div variants={fadeInUp}>
               <Card className="border-0 shadow-2xl">
                 <CardContent className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="p-4 flex-col  space-y-6">
                     {/* Personal Information */}
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -480,15 +480,16 @@ const Volunteer = () => {
                         className="w-full"
                       />
                     </div>
-
+                        <div className="w-full flex justify-center">
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full transition-all duration-300 hover:shadow-lg"
+                      className="w-[30%]  bg-background hover:bg-background text-white py-4 rounded-full "
                     >
                       <UserPlus className="w-5 h-5 mr-2" />
                       Submit Application
                     </Button>
+                    </div>
                   </form>
                 </CardContent>
               </Card>

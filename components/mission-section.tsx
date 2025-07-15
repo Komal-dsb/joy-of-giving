@@ -34,7 +34,7 @@ export function MissionSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-red-50">
+    <section ref={ref} className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ export function MissionSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-6">Our Mission</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-6">Our Mission</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             To create lasting positive change in communities worldwide by connecting generous hearts with meaningful
             causes, fostering hope, and building a more compassionate world for all.
@@ -60,7 +60,7 @@ export function MissionSection() {
             >
               <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2">
                 <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-200 transition-colors">
-                  <value.icon className="h-8 w-8 text-red-600" />
+                  <value.icon className="h-8 w-8 text-background" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>

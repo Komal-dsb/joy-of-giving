@@ -86,7 +86,7 @@ export function LatestAnnouncements() {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-red-50">
+    <section ref={ref} className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -94,7 +94,7 @@ export function LatestAnnouncements() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-6">Latest Updates</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-6">Latest Updates</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay informed about our latest initiatives, success stories, and urgent appeals for support.
           </p>
@@ -102,19 +102,19 @@ export function LatestAnnouncements() {
 
         {loading ? (
           <div className="flex justify-center items-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-red-600" />
+            <Loader2 className="h-8 w-8 animate-spin text-background" />
             <span className="ml-2 text-gray-600">Loading latest announcements...</span>
           </div>
         ) : error ? (
           <div className="text-center py-12">
-            <p className="text-red-600 mb-4">{error}</p>
+            <p className="text-background mb-4">{error}</p>
             <Button onClick={fetchLatestAnnouncements} variant="outline">
               Try Again
             </Button>
           </div>
         ) : announcements.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">No announcements available at the moment.</p>
+            <p className="text-background mb-4">No announcements available at the moment.</p>
             <Button asChild variant="outline">
               <Link href="/">Create New Announcement</Link>
             </Button>
@@ -134,23 +134,23 @@ export function LatestAnnouncements() {
                       <div className="flex items-center justify-between mb-4">
                         <span
                           className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            announcement.isUrgent ? "bg-red-100 text-red-800" : "bg-blue-100 text-blue-800"
+                            announcement.isUrgent ? "bg-red-100 text-background" : "bg-blue-50 text-background"
                           }`}
                         >
                           {announcement.category}
                         </span>
                       
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-background transition-colors">
                         {announcement.title}
                       </h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{announcement.excerpt}</p>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-gray-500">
+                        <div className="flex items-center text-sm text-background">
                           <Calendar className="h-4 w-4 mr-1" />
                           {new Date(announcement.date).toLocaleDateString()}
                         </div>
-                        <Button variant="ghost" size="sm" className="text-red-600 hover:text-red-700" asChild>
+                        <Button variant="ghost" size="sm" className="text-background hover:text-background" asChild>
                           <Link href={`/announcements/${announcement.id}`}>
                             Read More
                             <ArrowRight className="ml-1 h-4 w-4" />
@@ -168,7 +168,7 @@ export function LatestAnnouncements() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-center"
             >
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" className="hover:bg-background hover:text-white" asChild>
                 <Link href="/announcements">
                   View All Announcements
                   <ArrowRight className="ml-2 h-5 w-5" />

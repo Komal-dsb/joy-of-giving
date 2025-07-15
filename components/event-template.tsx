@@ -49,14 +49,14 @@ const EventTemplate: FC<EventTemplateProps> = ({
             alt={announcement.title}
             height={700}
             width={1200}
-            className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover transition-transform duration-700 hover:scale-105 rounded-xl"
+            className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover transition-transform duration-700 hover:scale-105 "
           />
         </motion.div>
       )}
 
-      <CardHeader className="pb-6 pt-8 px-4 sm:px-6 md:px-8">
+      <CardHeader className=" pt-8 px-4 sm:px-6 md:px-8">
         <motion.div variants={fadeIn}>
-          <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent leading-tight">
+          <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold bg-background bg-clip-text text-transparent leading-tight">
             {announcement.title}
           </CardTitle>
         </motion.div>

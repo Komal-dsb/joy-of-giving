@@ -41,7 +41,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 to-red-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -55,7 +55,7 @@ const Contact = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Get in <span className="text-red-600">Touch</span>
+              Get in <span className="text-background">Touch</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed"
@@ -164,15 +164,16 @@ const Contact = () => {
                         className="w-full"
                       />
                     </div>
-
+                  <div className="w-full flex justify-center">
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-full transition-all duration-300 hover:shadow-lg"
+                      className="w-[40%] bg-background hover:bg-background text-white py-4 rounded-full"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </Button>
+                    </div>
                   </form>
                 </CardContent>
               </Card>
@@ -220,12 +221,12 @@ const Contact = () => {
                 ].map((item, index) => (
                   <Card
                     key={index}
-                    className="border-l-4 border-l-red-600 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="border-l-4 border-l-background shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="bg-blue-100 p-3 rounded-full">
-                          <item.icon className="w-6 h-6 text-red-600" />
+                          <item.icon className="w-6 h-6 text-background" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -245,18 +246,18 @@ const Contact = () => {
               </div>
 
               {/* Emergency Contact */}
-              <Card className="bg-red-50 border-2 border-red-200">
+              <Card className="bg-gray-50 border-2 border-background">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-red-800 mb-2">
+                  <h3 className="text-lg font-bold text-background mb-2">
                     Emergency Assistance
                   </h3>
-                  <p className="text-red-700 mb-3">
+                  <p className="text-black mb-3">
                     For urgent humanitarian assistance or emergency situations:
                   </p>
-                  <p className="text-red-800 font-bold text-lg">
+                  <p className="text-black font-bold text-lg">
                    91 98780-04383 HELP-NOW
                   </p>
-                  <p className="text-red-600 text-sm">Available 24/7</p>
+                  <p className="text-black text-sm">Available 24/7</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -265,7 +266,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-red-50">
+      <section className="py-20 bg-gray-50">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"

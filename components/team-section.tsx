@@ -21,13 +21,13 @@ export function TeamSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-red-600 mb-6">Meet Our Team</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Meet Our Team</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our dedicated team brings together diverse expertise and shared passion for creating positive change in the
             world.
           </p>
         </motion.div>
-        <h2 className="py-4 text-4xl text-center font-bold text-gray-900">Our Leaders</h2>
+        <h2 className="py-4 text-4xl text-center font-bold text-black">Our Leaders</h2>
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
           {TeamLeaders.map((member, index) => (
             <motion.div
@@ -47,14 +47,14 @@ export function TeamSection() {
                     className="w-80 h-80 rounded-full mx-auto mb-4 object-cover"
                   />
                   <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-red-600 font-medium mb-3">{member.role}</p>
+                  <p className="text-background font-medium mb-3">{member.role}</p>
                  
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-             <h2 className="py-8 text-4xl text-center font-bold text-gray-900">Our Volunteers</h2>
+             <h2 className="py-8 text-4xl text-center font-bold text-black">Our Volunteers</h2>
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8">
           {TeamVolunteers.map((member, index) => (
             <motion.div

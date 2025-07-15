@@ -303,7 +303,7 @@ export default function AIBrochureGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
         
