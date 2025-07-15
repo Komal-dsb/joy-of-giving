@@ -82,11 +82,11 @@ export default function EditAnnouncementForm() {
       }
 
       if (data) {
-        const eventDate = data.event_date;
+        const eventDate = data.eventDate;
         setFormData({
           title: data.title,
           description: data.description,
-          eventVenue: data.event_venue,
+          eventVenue: data.eventVenue,
           eventDate: eventDate,
           brochure: null,
         });
@@ -199,8 +199,8 @@ export default function EditAnnouncementForm() {
         .update({
           title: formData.title.trim(),
           description: formData.description.trim(),
-          event_venue: formData.eventVenue.trim(),
-          event_date: formData.eventDate,
+          eventVenue: formData.eventVenue.trim(),
+          eventDate: formData.eventDate,
           brochure_url: brochureUrl,
         })
         .eq("id", announcementId);
@@ -425,7 +425,7 @@ export default function EditAnnouncementForm() {
                           <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                             📎
                           </div>
-                          <span className="text-sm font-medium text-blue-800">
+                          <span className="text-sm font-medium text-black/95">
                             Current file attached
                           </span>
                         </div>
@@ -433,7 +433,7 @@ export default function EditAnnouncementForm() {
                           href={currentBrochureUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-700 text-sm font-semibold hover:underline"
+                          className="text-black  text-sm font-semibold"
                         >
                           View File →
                         </a>
@@ -458,7 +458,7 @@ export default function EditAnnouncementForm() {
                       type="file"
                       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       onChange={handleFileChange}
-                      className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-white hover:file:bg-red-700"
+                      className="w-full h-12 border-gray-200 focus:border-background focus:ring-background file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-background file:text-white hover:file:bg-background"
                       disabled={isSubmitting || isDeleting}
                     />
                     <div className="flex items-center mt-2 text-xs text-gray-500">
@@ -505,7 +505,7 @@ export default function EditAnnouncementForm() {
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
                     type="submit"
-                    className="flex-1 h-12 text-base font-semibold bg-red-600 hover:bg-red-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="flex-1 h-12 text-base font-semibold bg-background hover:bg-background shadow-lg hover:shadow-xl transition-all duration-300"
                     disabled={isSubmitting || isDeleting}
                   >
                     {isSubmitting ? (
@@ -523,7 +523,7 @@ export default function EditAnnouncementForm() {
 
                   <Button
                     type="button"
-                    variant="destructive"
+                    variant="default"
                     onClick={handleDelete}
                     disabled={isSubmitting || isDeleting}
                     className="sm:w-auto h-12 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -577,7 +577,7 @@ export default function EditAnnouncementForm() {
                 setSelectedPhotos(Array.from(files));
               }
             }}
-            className="w-full h-12 border-gray-200 focus:border-red-500 focus:ring-red-500 file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-white hover:file:bg-red-700"
+            className="w-full h-12 border-gray-200 focus:border-background focus:ring-background file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-background file:text-white hover:file:bg-background"
             disabled={isSubmitting || isDeleting}
           />
           <p className="text-xs text-gray-500">

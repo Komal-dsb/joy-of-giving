@@ -25,7 +25,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-4">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -37,26 +37,26 @@ export default function AdminPage() {
         <Card className="border-0 shadow-2xl bg-white/80 backdrop-blur-sm">
           <CardContent className="p-8 text-center">
             {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-full mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-background rounded-full mb-6 shadow-lg">
               <Shield className="w-8 h-8 text-white" />
             </div>
 
             {/* Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Admin <span className="text-red-600">Access</span>
+              Admin <span className="text-background">Access</span>
             </h1>
 
             {/* Loading Section */}
             <div className="space-y-4">
               <div className="flex items-center justify-center space-x-3">
-                <Loader2 className="w-6 h-6 text-red-600 animate-spin" />
+                <Loader2 className="w-6 h-6 text-background animate-spin" />
                 <p className="text-gray-600 font-medium">Redirecting to login...</p>
               </div>
 
               {/* Progress Bar */}
               <div className="w-full bg-red-100 rounded-full h-1.5 overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full"
+                  className="h-full bg-gradient-to-r from-background to-background rounded-full"
                   initial={{ width: "0%" }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -66,7 +66,7 @@ export default function AdminPage() {
               {/* Skip Option */}
               <button
                 onClick={() => router.replace("/login")}
-                className="inline-flex items-center space-x-1 text-sm text-red-600 hover:text-red-700 font-medium transition-colors duration-200 hover:underline mt-4"
+                className="inline-flex items-center space-x-1 text-sm tex-background hover:text-background font-medium transition-colors duration-200 hover:underline mt-4"
               >
                 <span>Skip waiting</span>
                 <ArrowRight className="w-3 h-3" />
@@ -74,7 +74,7 @@ export default function AdminPage() {
             </div>
 
             {/* Security Note */}
-            <div className="mt-6 p-3 bg-red-50 rounded-lg border border-red-100">
+            <div className="mt-6 p-3 bg-gray-100 rounded-lg border border-red-100">
               <div className="flex items-center justify-center space-x-2 text-xs text-gray-600">
                 <Shield className="w-3 h-3 text-red-500" />
                 <span>Secure authentication required</span>

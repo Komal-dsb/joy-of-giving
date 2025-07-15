@@ -178,8 +178,8 @@ export default function AnnouncementForm() {
         {
           title: formData.title.trim(),
           description: formData.description.trim(),
-          event_venue: formData.eventVenue.trim(),
-          event_date: formData.eventDate,
+          eventVenue: formData.eventVenue.trim(),
+          eventDate: formData.eventDate,
           brochure_url: brochureUrl,
         },
       ])
