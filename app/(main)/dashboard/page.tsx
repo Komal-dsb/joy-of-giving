@@ -137,7 +137,7 @@ export default function AdminDashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 text-background animate-spin mx-auto mb-4" />
+          <Loader2 className="w-8 h-8 txt-base animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading dashboard...</p>
         </div>
       </div>
@@ -248,23 +248,23 @@ export default function AdminDashboard() {
                     <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">No announcements yet</h3>
                     <p className="text-gray-600 mb-6">Create your first announcement to get started!</p>
-                    <Button onClick={() => router.push("/createannouncement")} className="bg-red-600 hover:bg-red-700">
+                    <Button onClick={() => router.push("/createannouncement")} className="bg-base hover:bg-base">
                       <Plus className="w-4 h-4 mr-2" />
                       Create Announcement
                     </Button>
                   </div>
                 ) : (
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto ">
                     <Table>
                       <TableHeader>
-                        <TableRow>
-                          <TableHead className="font-semibold">Title</TableHead>
-                          <TableHead className="font-semibold">Description</TableHead>
-                          <TableHead className="font-semibold">Venue</TableHead>
-                          <TableHead className="font-semibold">Date</TableHead>
+                        <TableRow >
+                          <TableHead className="font-semibold txt-base">Title</TableHead>
+                          <TableHead className="font-semibold txt-base">Description</TableHead>
+                          <TableHead className="font-semibold txt-base">Venue</TableHead>
+                          <TableHead className="font-semibold txt-base">Date</TableHead>
                         
-                          <TableHead className="font-semibold">Brochure</TableHead>
-                          <TableHead className="font-semibold text-center">Actions</TableHead>
+                          <TableHead className="font-semibold txt-base">Brochure</TableHead>
+                          <TableHead className="font-semibold txt-base text-center">Actions</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -313,7 +313,7 @@ export default function AdminDashboard() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/editannouncement/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 bg-base text-white hover:bg-base hover:text-white"
+                                  className="h-8 w-8 p-0 bg-base text-white  hover:bg-base hover:text-white"
                                 >
                                   <Edit className="w-3 h-3 text-white hover:text-background" />
                                 </Button>
