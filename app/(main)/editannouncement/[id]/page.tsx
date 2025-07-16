@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import type { AnnouncementFormData } from "@/components/types/announcement";
+import { toast } from "sonner";
 
 export default function EditAnnouncementForm() {
   const router = useRouter();
@@ -181,6 +182,7 @@ export default function EditAnnouncementForm() {
     const validationError = validateForm();
     if (validationError) {
       setMessage({ type: "error", text: validationError });
+       toast.error(validationError);
       return;
     }
 
@@ -216,6 +218,7 @@ export default function EditAnnouncementForm() {
         text: "🎉 Fantastic! Your announcement has been updated successfully!",
       });
 
+        toast.success("🎉 Announcement updated successfully!");
       // Redirect to admin dashboard after a short delay
 
       router.push("/dashboard");
@@ -228,6 +231,8 @@ export default function EditAnnouncementForm() {
             ? error.message
             : "Oops! Something went wrong while updating your announcement. Please give it another try! 💪",
       });
+
+         toast.error("Oops! Something went wrong while updating your announcement. Please give it another try! 💪");
     } finally {
       setIsSubmitting(false);
     }
@@ -259,7 +264,7 @@ export default function EditAnnouncementForm() {
         type: "success",
         text: "Announcement deleted successfully! Redirecting...",
       });
-
+        toast.success("🗑️ Announcement deleted successfully!");
       router.push("/dashboard");
     } catch (error) {
       console.error("Error deleting announcement:", error);
@@ -267,6 +272,7 @@ export default function EditAnnouncementForm() {
         type: "error",
         text: "Failed to delete announcement. Please try again.",
       });
+        toast.error("Failed to delete announcement. Please try again.");
     } finally {
       setIsDeleting(false);
     }

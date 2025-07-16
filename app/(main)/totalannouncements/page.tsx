@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementRecord } from "@/components/types/announcement"
+import { toast } from "sonner"
 
 export default function AdminAnnouncementsPage() {
   const router = useRouter()
@@ -150,13 +151,14 @@ export default function AdminAnnouncementsPage() {
       if (error) {
         throw error
       }
-
+          toast.success(`"${title}" deleted successfully!`)
       // Remove from local state
       setAnnouncements((prev) => prev.filter((ann) => ann.id !== id))
       setError(null)
     } catch (err) {
       console.error("Error deleting announcement:", err)
       setError("Failed to delete announcement. Please try again.")
+      toast.error("Failed to delete announcement. Please try again.")
     } finally {
       setDeletingId(null)
     }
@@ -496,7 +498,7 @@ export default function AdminAnnouncementsPage() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/announcements/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
+                                  className="h-8 w-8 p-0 hover:bg-base bg-base text-foreground hover:text-foreground"
                                   title="View Details"
                                 >
                                   <Eye className="w-3 h-3" />
@@ -505,7 +507,7 @@ export default function AdminAnnouncementsPage() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/edit-announcement/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
+                                  className="h-8 w-8 p-0 hover:bg-base bg-base text-foreground hover:text-foreground"
                                   title="Edit"
                                 >
                                   <Edit className="w-3 h-3" />
@@ -515,7 +517,7 @@ export default function AdminAnnouncementsPage() {
                                   variant="outline"
                                   onClick={() => handleDelete(announcement.id, announcement.title)}
                                   disabled={deletingId === announcement.id}
-                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
+                                  className="h-8 w-8 p-0 bg-base hover:bg-base text-foreground hover:text-foreground"
                                   title="Delete"
                                 >
                                   {deletingId === announcement.id ? (

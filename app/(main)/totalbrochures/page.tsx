@@ -364,7 +364,7 @@ export default function AdminBrochuresPage() {
             <CardTitle className="flex items-center justify-between">
               <span>Brochure Management</span>
               <div className="flex gap-2">
-                <Button onClick={exportToCSV} variant="outline" size="sm" className="hover:bg-base text-foreground hover:text-foreground">
+                <Button onClick={exportToCSV} variant="outline" size="sm" className="hover:bg-base bg-base text-foreground hover:text-foreground">
                   <Download className="w-4 h-4 mr-2 " />
                   Export CSV
                 </Button>

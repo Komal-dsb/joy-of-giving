@@ -7,11 +7,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle, AlertCircle, Upload, Loader2 } from "lucide-react"
+import {  Upload, Loader2 } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementFormData } from "@/components/types/announcement"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner";
+
 
 
 const initialFormData: AnnouncementFormData = {
@@ -38,10 +39,7 @@ export default function AnnouncementForm() {
   const [formData, setFormData] = useState<AnnouncementFormData>(initialFormData)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState<{
-    type: "success" | "error" | null
-    text: string
-  }>({ type: null, text: "" })
+ 
 
   // Helper function to get character count styling
   const getCharCountStyle = (current: number, max: number) => {
@@ -70,20 +68,14 @@ export default function AnnouncementForm() {
 
     setFormData((prev) => ({ ...prev, [field]: limitedValue }))
 
-    // Clear any previous messages when user starts typing
-    if (message.type) {
-      setMessage({ type: null, text: "" })
-    }
+   
   }
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0] || null
     setFormData((prev) => ({ ...prev, brochure: file }))
 
-    // Clear any previous messages when user selects a file
-    if (message.type) {
-      setMessage({ type: null, text: "" })
-    }
+  
   }
 
   const uploadBrochure = async (file: File): Promise<string | null> => {
@@ -158,12 +150,13 @@ export default function AnnouncementForm() {
 
     const validationError = validateForm()
     if (validationError) {
-      setMessage({ type: "error", text: validationError })
+  
+         toast.error(validationError);
       return
     }
 
     setIsSubmitting(true)
-    setMessage({ type: null, text: "" })
+  
 
     try {
       let brochureUrl: string | null = null
@@ -205,24 +198,18 @@ export default function AnnouncementForm() {
         fileInput.value = ""
       }
 
-      setMessage({
-        type: "success",
-        text: "🎉 Fantastic! Your announcement has been created successfully and is ready to inspire everyone!",
-      })
+  
 
+         toast.success("🎉 Announcement created successfully!");
       // Redirect to announcements page after a short delay
       
         router.push("/announcements")
     
     } catch (error) {
       console.error("Error submitting form:", error)
-      setMessage({
-        type: "error",
-        text:
-          error instanceof Error
-            ? error.message
-            : "Oops! Something went wrong while creating your announcement. Please give it another try!",
-      })
+     
+
+        toast.error("Oops! Something went wrong while creating your announcement. Please give it another try!");
     } finally {
       setIsSubmitting(false)
     }
@@ -376,21 +363,7 @@ export default function AnnouncementForm() {
                 )}
               </div>
 
-              {/* Message Display */}
-              {message.type && (
-                <Alert
-                  className={message.type === "success" ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}
-                >
-                  {message.type === "success" ? (
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  ) : (
-                    <AlertCircle className="h-4 w-4 text-red-600" />
-                  )}
-                  <AlertDescription className={message.type === "success" ? "text-green-800" : "text-red-800"}>
-                    {message.text}
-                  </AlertDescription>
-                </Alert>
-              )}
+             
 
               {/* Submit Button */}
               <Button

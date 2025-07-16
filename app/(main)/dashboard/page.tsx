@@ -14,15 +14,14 @@ import {
   Trash2,
   ExternalLink,
   MapPin,
-  AlertCircle,
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
-import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { supabase } from "@/lib/supabase"
 import type { AnnouncementRecord } from "@/components/types/announcement"
+import { toast } from "sonner"
 
 export default function AdminDashboard() {
   const router = useRouter()
@@ -31,7 +30,7 @@ export default function AdminDashboard() {
   const [announcements, setAnnouncements] = useState<AnnouncementRecord[]>([])
   const [loadingAnnouncements, setLoadingAnnouncements] = useState(false)
   const [deletingId, setDeletingId] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -59,7 +58,7 @@ export default function AdminDashboard() {
   const fetchAnnouncements = useCallback(async () => {
     try {
       setLoadingAnnouncements(true)
-      setError(null)
+     
 
       const { data, error } = await supabase.from("announcements").select("*").order("eventDate", { ascending: true })
 
@@ -70,7 +69,8 @@ export default function AdminDashboard() {
       setAnnouncements(data || [])
     } catch (err) {
       console.error("Error fetching announcements:", err)
-      setError("Failed to load announcements. Please try again.")
+   
+      toast.error("Failed to load announcements. Please try again.")
     } finally {
       setLoadingAnnouncements(false)
     }
@@ -95,12 +95,13 @@ export default function AdminDashboard() {
       if (error) {
         throw error
       }
-
+          toast.success("🗑️ Announcement deleted successfully!");
       // Remove from local state
       setAnnouncements((prev) => prev.filter((ann) => ann.id !== id))
     } catch (err) {
       console.error("Error deleting announcement:", err)
-      setError("Failed to delete announcement. Please try again.")
+    
+        toast.error("❌ Failed to delete announcement. Please try again.");
     } finally {
       setDeletingId(null)
     }
@@ -224,24 +225,7 @@ export default function AdminDashboard() {
             </Card>
           </motion.div>
 
-          {/* Error Alert */}
-          {error && (
-            <motion.div className="mb-6" variants={fadeInUp}>
-              <Alert className="border-red-200 bg-red-50">
-                <AlertCircle className="h-4 w-4 text-red-600" />
-                <AlertDescription className="text-red-800">
-                  {error}
-                  <Button
-                    onClick={fetchAnnouncements}
-                    variant="link"
-                    className="p-0 h-auto ml-2 text-red-600 hover:text-red-700"
-                  >
-                    Try again
-                  </Button>
-                </AlertDescription>
-              </Alert>
-            </motion.div>
-          )}
+        
 
           {/* Announcements Table */}
           <motion.div variants={fadeInUp}>

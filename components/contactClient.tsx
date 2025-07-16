@@ -291,7 +291,7 @@ const Contact = () => {
               {
                 question: "Are donations tax-deductible?",
                 answer:
-                  "Yes, we&apos;re a registered 501(c)(3) nonprofit. All donations are tax-deductible to the fullest extent allowed by law.",
+                  "Yes, we are a registered 501(c)(3) nonprofit. All donations are tax-deductible to the fullest extent allowed by law.",
               },
               {
                 question: "Can I donate items instead of money?",
