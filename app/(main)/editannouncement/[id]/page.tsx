@@ -534,7 +534,7 @@ export default function EditAnnouncementForm() {
                     variant="default"
                     onClick={handleDelete}
                     disabled={isSubmitting || isDeleting}
-                    className="sm:w-auto h-12 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="sm:w-auto h-12 font-semibold bg-base shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     {isDeleting ? (
                       <>
@@ -558,7 +558,7 @@ export default function EditAnnouncementForm() {
           <div className="mb-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-               <span className="text-background">Add Photos</span>
+               <span className="txt-base">Add Photos</span>
             </h1>
             <p className="text-gray-600 text-lg">
               Update your announcement details add photos and make it even more amazing! ✨

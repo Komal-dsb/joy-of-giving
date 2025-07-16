@@ -1,5 +1,5 @@
 import AnnouncementsDisplay from "@/components/announcementDisplay"
-export const dynamic = "force-dynamic" 
+
 
 
 
