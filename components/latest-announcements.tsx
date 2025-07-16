@@ -168,7 +168,7 @@ export function LatestAnnouncements() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-center"
             >
-              <Button size="lg" variant="outline" className="hover:bg-background hover:text-white" asChild>
+              <Button size="lg" variant="outline" className="hover:bg-base bg-base hover:text-white" asChild>
                 <Link href="/announcements">
                   View All Announcements
                   <ArrowRight className="ml-2 h-5 w-5" />

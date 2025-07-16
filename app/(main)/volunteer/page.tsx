@@ -124,7 +124,7 @@ const Volunteer = () => {
               className="flex items-center justify-center space-x-2 text-lg text-gray-700"
               variants={fadeInUp}
             >
-              <Users className="w-6 h-6 text-background" />
+              <Users className="w-6 h-6 txt-base" />
               <span>Join 500+ active volunteers making a difference</span>
             </motion.div>
           </div>

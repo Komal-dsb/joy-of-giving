@@ -104,7 +104,7 @@ export function Navigation() {
                 <Button
                   variant="outline"
                   asChild
-                  className=" text-foreground hover:text-foreground hover:bg-base whitespace-nowrap"
+                  className=" text-foreground bg-base hover:text-foreground hover:bg-base whitespace-nowrap"
                 >
                   <Link href="/dashboard">
                     <Shield className="w-4 h-4" />
@@ -122,7 +122,7 @@ export function Navigation() {
               </>
             ) : (
               <>
-                <Button variant="outline" className="hover:text-foreground hover:bg-base" asChild>
+                <Button variant="outline" className="hover:text-foreground bg-base hover:bg-base" asChild>
                   <Link href="/volunteer">Volunteer</Link>
                 </Button>
                 <Button asChild className="bg-base hover:bg-base text-foreground">

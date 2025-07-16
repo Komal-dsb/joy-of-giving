@@ -68,7 +68,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="background-base-theme hover:bg-background text-foreground hover:text-forground px-8 py-4 text-lg font-semibold group "
+              className="bg-base hover:bg-background text-foreground hover:text-forground px-8 py-4 text-lg font-semibold group "
               asChild
             >
               <Link href="/volunteer">

@@ -94,7 +94,7 @@ export default function AnnouncementForm() {
 
       // 1. Try uploading the file
       const { data: uploadData, error: uploadError } = await supabase.storage
-        .from("brochure-url")
+        .from("brochures")
         .upload(filePath, file)
 
       if (uploadError) {
@@ -105,7 +105,7 @@ export default function AnnouncementForm() {
       console.log("Upload data:", uploadData)
 
       // 2. Get the public URL
-      const { data } = supabase.storage.from("brochure-url").getPublicUrl(filePath)
+      const { data } = supabase.storage.from("brochures").getPublicUrl(filePath)
 
       console.log("Public URL data:", data)
 

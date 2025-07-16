@@ -10,7 +10,7 @@ export interface AnnouncementFormData {
   description: string | ""
   eventVenue: string | ""
   eventDate:string | ""
-  brochure_url?: string | null
+  brochure_url?: string | null 
 }
 
   export interface AnnouncementRecord {

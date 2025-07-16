@@ -221,7 +221,7 @@ const Contact = () => {
                 ].map((item, index) => (
                   <Card
                     key={index}
-                    className="border-l-4 border-l-red-300 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="border-l-4 border-l-[var(--base-theme)] shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
@@ -246,7 +246,7 @@ const Contact = () => {
               </div>
 
               {/* Emergency Contact */}
-              <Card className="bg-gray-50 border-2 border-red-300">
+              <Card className="bg-gray-50 border-2 border-[var(--base-theme)]">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-bold txt-base mb-2">
                     Emergency Assistance

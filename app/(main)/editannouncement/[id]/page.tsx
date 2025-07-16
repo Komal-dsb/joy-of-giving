@@ -136,16 +136,18 @@ export default function EditAnnouncementForm() {
       const filePath = `brochures/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("announcements")
-        .upload(filePath, file);
+      .from("brochures")
+        .upload(filePath, file, { upsert: true });
 
       if (uploadError) {
+          console.error("Upload Error:", uploadError);
         throw uploadError;
       }
 
       const {
         data: { publicUrl },
-      } = supabase.storage.from("announcements").getPublicUrl(filePath);
+      } = supabase.storage.from("brochures").getPublicUrl(filePath);
+      console.log("✅ Brochure uploaded:", publicUrl);
 
       return publicUrl;
     } catch (error) {

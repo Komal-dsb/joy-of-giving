@@ -84,8 +84,8 @@ export function FeaturedPrograms() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{program.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{program.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-background">{program.impact}</span>
-                    <Button variant="ghost" size="sm" className="text-background hover:text-background">
+                    <span className="text-sm font-medium txt-base">{program.impact}</span>
+                    <Button variant="ghost" size="sm" className="txt-base hover:txt-base">
                       Learn More
                       <ArrowRight className="ml-1 h-4 w-4" />
                     </Button>
@@ -102,7 +102,7 @@ export function FeaturedPrograms() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <Button size="lg" className="hover:bg-background  hover:text-foreground" variant="outline" asChild>
+          <Button size="lg" className="hover:bg-background bg-base hover:text-foreground" variant="outline" asChild>
             <Link href="/programs">
               View All Programs
               <ArrowRight className="ml-2 h-5 w-5" />

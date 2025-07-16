@@ -12,7 +12,7 @@ export function CallToAction() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-r from-bg-base to-bg-base text-white relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-base text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -43,7 +43,7 @@ export function CallToAction() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white backdrop-blur-sm rounded-2xl p-8 text-center"
             >
-              <Heart className="h-12 w-12 mx-auto mb-4 text-background" />
+              <Heart className="h-12 w-12 mx-auto mb-4 txt-base" />
               <h3 className="text-2xl font-semibold mb-4">Donate Today</h3>
               <p className="text-background mb-6">
                 Every donation, no matter the size, creates ripples of positive change in communities that need it most.
@@ -59,7 +59,7 @@ export function CallToAction() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="bg-white backdrop-blur-sm rounded-2xl p-8 text-center"
             >
-              <Users className="h-12 w-12 mx-auto mb-4 text-background" />
+              <Users className="h-12 w-12 mx-auto mb-4 txt-base" />
               <h3 className="text-2xl font-semibold mb-4">Volunteer With Us</h3>
               <p className="text-background mb-6">
                 Share your time, skills, and passion to directly impact lives and be part of our growing community of

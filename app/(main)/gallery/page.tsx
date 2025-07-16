@@ -95,8 +95,8 @@ const Gallery = () => {
                 onClick={() => setFilter(category.id)}
                 className={`rounded-full px-6 py-2 transition-all duration-300 ${
                   filter === category.id
-                    ? "bg-background text-white shadow-lg"
-                    : "text-white hover:text-background hover:border-background"
+                    ? "bg-base text-white shadow-lg"
+                    : "bg-foreground txt-base hover:txt-base hover:border-[var(--base-theme)]"
                 }`}
               >
                 {category.label}

@@ -21,7 +21,7 @@ export default function ProgramsPage() {
       <ClientPrograms />
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-bg-base to-bg-base text-white text-center">
+      <section className="py-16 bg-base text-white text-center">
         <h2 className="text-4xl font-bold mb-6 tracking-tight">Ready to Make an Impact?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
           Choose a program that speaks to your heart and help us create lasting change.

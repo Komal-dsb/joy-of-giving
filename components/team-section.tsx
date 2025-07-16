@@ -47,7 +47,7 @@ export function TeamSection() {
                     className="w-80 h-80 rounded-full mx-auto mb-4 object-cover"
                   />
                   <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-background font-medium mb-3">{member.role}</p>
+                  <p className="txt-base font-medium mb-3">{member.role}</p>
                  
                 </CardContent>
               </Card>
