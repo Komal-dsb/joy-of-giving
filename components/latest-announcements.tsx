@@ -146,11 +146,11 @@ export function LatestAnnouncements() {
                       </h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{announcement.excerpt}</p>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-background">
+                        <div className="flex items-center text-sm txt-base">
                           <Calendar className="h-4 w-4 mr-1" />
                           {new Date(announcement.date).toLocaleDateString()}
                         </div>
-                        <Button variant="ghost" size="sm" className="text-background hover:text-background" asChild>
+                        <Button variant="ghost" size="sm" className="txt-base hover:text-background" asChild>
                           <Link href={`/announcements/${announcement.id}`}>
                             Read More
                             <ArrowRight className="ml-1 h-4 w-4" />
