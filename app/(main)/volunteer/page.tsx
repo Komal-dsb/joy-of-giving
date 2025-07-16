@@ -96,7 +96,7 @@ const Volunteer = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-100 to-gray-200 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"

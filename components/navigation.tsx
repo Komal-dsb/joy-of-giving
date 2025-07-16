@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -25,6 +27,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+
 
   // Helper to check active route
   const isActive = (href: string) =>
@@ -54,6 +58,8 @@ export function Navigation() {
     localStorage.removeItem("isAuthenticated")
     setIsAuthenticated(false)
     setIsOpen(false)
+      router.push("/")
+    
   }
 
   return (

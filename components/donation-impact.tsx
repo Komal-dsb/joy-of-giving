@@ -18,7 +18,7 @@ const impactExamples = [
     icon: "🍽️",
   },
   {
-    amount: 100,
+    amount: 10,
     impact: "Provides clean water access for one person for a year",
     icon: "💧",
   },
@@ -33,7 +33,7 @@ const impactExamples = [
     icon: "🎓",
   },
   {
-    amount: 1000,
+    amount: 100,
     impact: "Builds one water well serving an entire village",
     icon: "🏘️",
   },
@@ -44,7 +44,7 @@ export function DonationImpact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-red-50">
+    <section ref={ref} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,7 +70,7 @@ export function DonationImpact() {
               <Card className="h-full hover:shadow-lg transition-all duration-300 group">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{example.icon}</div>
-                  <div className="text-2xl font-bold text-red-600 mb-2">${example.amount}</div>
+                  <div className="text-2xl font-bold txt-base mb-2">Rs.{example.amount*100}</div>
                   <p className="text-gray-600 leading-relaxed">{example.impact}</p>
                 </CardContent>
               </Card>
