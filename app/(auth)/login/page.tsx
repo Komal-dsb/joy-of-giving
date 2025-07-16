@@ -74,8 +74,8 @@ export default function LoginPage() {
         >
           {/* Header */}
           <motion.div className="text-center mb-8" variants={fadeInUp}>
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-background rounded-full mb-4">
-              <Lock className="w-8 h-8 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-base rounded-full mb-4">
+              <Lock className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h1>
             <p className="text-gray-600">Please sign in to access the admin dashboard ✨</p>
@@ -104,7 +104,7 @@ export default function LoginPage() {
                         placeholder="Enter your username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        className="pl-10 h-12 border-gray-200 focus:border-background focus:ring-background"
+                        className="pl-10 h-12 border-gray-200 focus:border-red-400 focus:ring-red-400"
                         disabled={isLoading}
                         required
                       />
@@ -158,7 +158,7 @@ export default function LoginPage() {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-background hover:bg-background text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full h-12 bg-base hover:bg-base text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={isLoading || !username.trim() || !password.trim()}
                   >
                     {isLoading ? (

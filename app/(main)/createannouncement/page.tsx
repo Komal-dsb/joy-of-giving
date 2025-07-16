@@ -250,7 +250,7 @@ export default function AnnouncementForm() {
               {/* Title Field */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <Label htmlFor="title" className="text-red-600 font-medium">
+                  <Label htmlFor="title" className="txt-base font-medium">
                     Announcement Title *
                   </Label>
                   <div className="flex items-center space-x-2">
@@ -283,7 +283,7 @@ export default function AnnouncementForm() {
               {/* Description Field */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <Label htmlFor="description" className="text-red-600 font-medium">
+                  <Label htmlFor="description" className="txt-base font-medium">
                     Description *
                   </Label>
                   <div className="flex items-center space-x-2">
@@ -316,7 +316,7 @@ export default function AnnouncementForm() {
 
               {/* Event/Venue Field */}
               <div className="space-y-2">
-                <Label htmlFor="eventVenue" className="text-red-600 font-medium">
+                <Label htmlFor="eventVenue" className="txt-base font-medium">
                   Event/Venue *
                 </Label>
                 <Input
@@ -335,7 +335,7 @@ export default function AnnouncementForm() {
 
               {/* Event Date Field */}
               <div className="space-y-2">
-                <Label htmlFor="eventDate" className="text-red-600 font-medium">
+                <Label htmlFor="eventDate" className="txt-base font-medium">
                   Event Date *
                 </Label>
                 <Input
@@ -361,7 +361,7 @@ export default function AnnouncementForm() {
                     type="file"
                     accept=".jpg,.png"
                     onChange={handleFileChange}
-                    className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-600 file:text-primary-foreground hover:file:bg-red-700"
+                    className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-500 file:text-primary-foreground  hover:file:bg-red-600"
                     disabled={isSubmitting}
                   />
                   <div className="flex items-center mt-2 text-xs text-gray-500">
@@ -395,7 +395,7 @@ export default function AnnouncementForm() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 text-base font-medium"
+                className="w-full bg-gradient-to-r  from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 text-base font-medium"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

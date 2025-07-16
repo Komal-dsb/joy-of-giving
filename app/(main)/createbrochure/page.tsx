@@ -332,7 +332,7 @@ export default function AIBrochureGenerator() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Event Title */}
                 <div className="space-y-2">
-                  <Label htmlFor="title" className="text-base font-semibold">
+                  <Label htmlFor="title" className="text-base txt-base font-semibold">
                     Event Title *
                   </Label>
                   <Input
@@ -363,7 +363,7 @@ export default function AIBrochureGenerator() {
 
                 {/* Event Description */}
                 <div className="space-y-2">
-                  <Label htmlFor="description" className="text-base font-semibold">
+                  <Label htmlFor="description" className="text-base txt-base font-semibold">
                     Event Description *
                   </Label>
                   <Textarea
@@ -395,7 +395,7 @@ export default function AIBrochureGenerator() {
                 {/* Venue and Date */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="venue" className="text-base font-semibold">
+                    <Label htmlFor="venue" className="text-base txt-base font-semibold">
                       Venue *
                     </Label>
                     <Input
@@ -416,7 +416,7 @@ export default function AIBrochureGenerator() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="date" className="text-base font-semibold">
+                    <Label htmlFor="date" className="text-base txt-base font-semibold">
                       Event Date *
                     </Label>
                     <Input
@@ -434,7 +434,7 @@ export default function AIBrochureGenerator() {
 
                 {/* Event Image Upload */}
                 <div className="space-y-2">
-                  <Label htmlFor="image" className="text-base font-semibold">
+                  <Label htmlFor="image" className="text-base txt-base font-semibold">
                     Event Image (Optional)
                   </Label>
                   <div className="relative">

@@ -56,7 +56,7 @@ const EventTemplate: FC<EventTemplateProps> = ({
 
       <CardHeader className=" pt-8 px-4 sm:px-6 md:px-8">
         <motion.div variants={fadeIn}>
-          <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold bg-background bg-clip-text text-transparent leading-tight">
+          <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold bg-base bg-clip-text text-transparent leading-tight">
             {announcement.title}
           </CardTitle>
         </motion.div>

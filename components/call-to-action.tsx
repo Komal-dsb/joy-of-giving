@@ -12,7 +12,7 @@ export function CallToAction() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-r from-background to-background text-white relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-gradient-to-r from-bg-base to-bg-base text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -48,7 +48,7 @@ export function CallToAction() {
               <p className="text-background mb-6">
                 Every donation, no matter the size, creates ripples of positive change in communities that need it most.
               </p>
-              <Button size="lg" variant="secondary" className="w-full bg-background text-foreground hover:bg-background hover:text-foreground" asChild>
+              <Button size="lg" variant="secondary" className="w-full bg-base text-foreground hover:bg-base hover:text-foreground" asChild>
                 <Link href="/donate">Make a Donation</Link>
               </Button>
             </motion.div>
@@ -65,7 +65,7 @@ export function CallToAction() {
                 Share your time, skills, and passion to directly impact lives and be part of our growing community of
                 changemakers.
               </p>
-              <Button size="lg" variant="secondary" className="w-full bg-background text-foreground hover:bg-background hover:text-foreground" asChild>
+              <Button size="lg" variant="secondary" className="w-full bg-base text-foreground hover:bg-base hover:text-foreground" asChild>
                 <Link href="/volunteer">Join Our Team</Link>
               </Button>
             </motion.div>

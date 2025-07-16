@@ -65,7 +65,7 @@ const Gallery = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Our <span className="text-background">Gallery</span>
+              Our <span className="txt-base">Gallery</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed"

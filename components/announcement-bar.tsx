@@ -92,7 +92,7 @@ export function AnnouncementBar() {
         animate={{ height: "auto", opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-background text-white overflow-hidden"
+        className="bg-base text-foreground overflow-hidden"
       >
         <div className="container mx-auto px-4 py-3 relative flex items-center">
           <AlertCircle className="h-4 w-4 mr-2 flex-shrink-0" />

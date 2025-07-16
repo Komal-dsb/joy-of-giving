@@ -220,7 +220,7 @@ export default function AdminAnnouncementsPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 text-red-600 animate-spin mx-auto mb-4" />
+          <Loader2 className="w-8 h-8 txt-base animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading admin panel...</p>
         </div>
       </div>
@@ -256,12 +256,12 @@ export default function AdminAnnouncementsPage() {
           >
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                All <span className="text-red-600">Announcements</span>
+                All <span className="txt-base">Announcements</span>
               </h1>
               <p className="text-gray-600">Manage all your announcements in one place</p>
             </div>
             <div className="flex gap-3">
-              <Button onClick={() => router.push("/createannouncement")} className="bg-red-600 hover:bg-red-700 flex items-center gap-2">
+              <Button onClick={() => router.push("/createannouncement")} className="bg-base hover:bg-base flex items-center gap-2">
                 <Plus className="w-4 h-4" />
                 New Announcement
               </Button>
@@ -401,7 +401,7 @@ export default function AdminAnnouncementsPage() {
               <CardContent>
                 {loadingAnnouncements ? (
                   <div className="flex items-center justify-center py-12">
-                    <Loader2 className="w-6 h-6 text-red-600 animate-spin mr-2" />
+                    <Loader2 className="w-6 h-6 txt-base animate-spin mr-2" />
                     <span className="text-gray-600">Loading announcements...</span>
                   </div>
                 ) : filteredAnnouncements.length === 0 ? (
@@ -416,7 +416,7 @@ export default function AdminAnnouncementsPage() {
                         : "Create your first announcement to get started!"}
                     </p>
                     {!searchTerm && statusFilter === "all" && (
-                      <Button onClick={() => router.push("/")} className="bg-red-600 hover:bg-red-700">
+                      <Button onClick={() => router.push("/")} className="bg-base hover:bg-base">
                         <Plus className="w-4 h-4 mr-2" />
                         Create Announcement
                       </Button>
@@ -451,7 +451,7 @@ export default function AdminAnnouncementsPage() {
                               </div>
                             </TableCell>
                             <TableCell className="max-w-[150px]">
-                              <div className="flex items-center text-gray-600">
+                              <div className="flex items-center txt-base">
                                 <MapPin className="w-3 h-3 mr-1 flex-shrink-0" />
                                 <span className="truncate" title={announcement.eventVenue}>
                                   {announcement.eventVenue}
@@ -496,7 +496,7 @@ export default function AdminAnnouncementsPage() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/announcements/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 hover:bg-green-50 hover:border-green-200"
+                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
                                   title="View Details"
                                 >
                                   <Eye className="w-3 h-3" />
@@ -505,7 +505,7 @@ export default function AdminAnnouncementsPage() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/edit-announcement/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 hover:bg-blue-50 hover:border-blue-200"
+                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
                                   title="Edit"
                                 >
                                   <Edit className="w-3 h-3" />
@@ -515,7 +515,7 @@ export default function AdminAnnouncementsPage() {
                                   variant="outline"
                                   onClick={() => handleDelete(announcement.id, announcement.title)}
                                   disabled={deletingId === announcement.id}
-                                  className="h-8 w-8 p-0 hover:bg-red-50 hover:border-red-200 text-red-600 hover:text-red-700"
+                                  className="h-8 w-8 p-0 hover:bg-base text-foreground hover:text-foreground"
                                   title="Delete"
                                 >
                                   {deletingId === announcement.id ? (

@@ -96,7 +96,7 @@ const Volunteer = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-20 pb-32">
+      <section className="relative bg-gradient-to-br from-gray-100 to-gray-200 pt-20 pb-32">
         <motion.div
           className="container mx-auto px-4"
           initial="initial"
@@ -110,7 +110,7 @@ const Volunteer = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Join Our <span className="text-background">Team</span>
+              Join Our <span className="txt-base">Team</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed mb-8"
@@ -196,7 +196,7 @@ const Volunteer = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-background mb-16 text-center"
+            className="text-4xl font-bold txt-base mb-16 text-center"
             variants={fadeInUp}
           >
             Volunteer Opportunities
@@ -209,7 +209,7 @@ const Volunteer = () => {
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-4">
                       <div className="bg-theme p-3 rounded-full">
-                        <opportunity.icon className="w-6 h-6 text-background" />
+                        <opportunity.icon className="w-6 h-6 txt-base" />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -484,7 +484,7 @@ const Volunteer = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-[30%]  bg-background hover:bg-background text-white py-4 rounded-full "
+                      className="w-[30%]  bg-base hover:bg-base text-white py-4 rounded-full "
                     >
                       <UserPlus className="w-5 h-5 mr-2" />
                       Submit Application

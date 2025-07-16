@@ -45,10 +45,10 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #F4583B;
-  --theme: #F4F5F7;
+  --background: oklch(0.708 0 0);
+   --base-theme:  #F4583B;
 
-  
+
   --foreground : #FFFFFF;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -129,6 +129,18 @@
   width: max-content;
   animation: marquee 12s linear infinite;
   will-change: transform;
+}
+
+.txt-base {
+  color: var(--base-theme);
+}
+
+.bg-base {
+  background-color: var(--base-theme);
+}
+
+.group:hover .group-hover\:txt-base {
+  color: var(--base-theme);
 }
 
 

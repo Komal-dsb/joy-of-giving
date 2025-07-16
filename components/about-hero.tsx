@@ -11,7 +11,7 @@ export function AboutHero() {
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               About
-              <span className="text-background block">Joy of Giving</span>
+              <span className="txt-base block">Joy of Giving</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
               Founded on the belief that every person deserves hope, dignity, and opportunity, we have been creating
@@ -19,11 +19,11 @@ export function AboutHero() {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-background">125K+</div>
+                <div className="text-3xl font-bold txt-base">125K+</div>
                 <div className="text-gray-600">Lives Impacted</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-background">45</div>
+                <div className="text-3xl font-bold txt-base">45</div>
                 <div className="text-gray-600">Countries</div>
               </div>
             </div>

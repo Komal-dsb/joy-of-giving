@@ -82,15 +82,15 @@ export function Navigation() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-background relative",
-                  isActive(item.href) ? "text-background" : "text-gray-900"
+                  "text-sm font-medium transition-colors hover:txt-base relative",
+                  isActive(item.href) ? "txt-base" : "text-gray-900"
                 )}
               >
                 {item.name}
                 {isActive(item.href) && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-background"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-base"
                   />
                 )}
               </Link>
@@ -104,7 +104,7 @@ export function Navigation() {
                 <Button
                   variant="outline"
                   asChild
-                  className="border-background text-foreground hover:text-foreground hover:bg-background whitespace-nowrap"
+                  className=" text-foreground hover:text-foreground hover:bg-base whitespace-nowrap"
                 >
                   <Link href="/dashboard">
                     <Shield className="w-4 h-4" />
@@ -114,7 +114,7 @@ export function Navigation() {
                 <Button
                   variant="ghost"
                   onClick={handleLogout}
-                  className="text-forground bg-background hover:bg-background hover:text-foreground"
+                  className="text-forground bg-base hover:bg-base hover:text-foreground"
                 >
                   <User className="w-4 h-4" />
                   Logout
@@ -122,10 +122,10 @@ export function Navigation() {
               </>
             ) : (
               <>
-                <Button variant="outline" className="hover:text-foreground hover:bg-background" asChild>
+                <Button variant="outline" className="hover:text-foreground hover:bg-base" asChild>
                   <Link href="/volunteer">Volunteer</Link>
                 </Button>
-                <Button asChild className="bg-background hover:bg-background text-foreground">
+                <Button asChild className="bg-base hover:bg-base text-foreground">
                   <Link href="/donate">Donate Now</Link>
                 </Button>
               </>
@@ -135,7 +135,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-10 h-10 txt-base" /> : <Menu className="w-10 h-10 txt-base" />}
             </Button>
           </div>
         </div>
@@ -160,7 +160,7 @@ export function Navigation() {
                   className={cn(
                     "block px-4 py-2 text-sm rounded-md transition-colors",
                     isActive(item.href)
-                      ? "bg-red-50 text-red-600"
+                      ? "bg-base text-base"
                       : "text-gray-700 hover:bg-gray-100"
                   )}
                 >
@@ -173,7 +173,7 @@ export function Navigation() {
                   <>
                     <Button
                       variant="outline"
-                      className="w-full bg-red-50 border-red-200 text-red-600 hover:bg-red-100"
+                      className="w-full bg-red-50 border-red-200 txt-base hover:bg-red-100"
                       asChild
                     >
                       <Link href="/dashboard" onClick={() => setIsOpen(false)}>
@@ -183,7 +183,7 @@ export function Navigation() {
                     </Button>
                     <Button
                       onClick={handleLogout}
-                      className="w-full text-white bg-red-500 hover:bg-red-600"
+                      className="w-full text-white bg-base hover:bg-base"
                     >
                       <User className="w-4 h-4 mr-2" />
                       Logout
@@ -197,7 +197,7 @@ export function Navigation() {
                       </Link>
                     </Button>
                     <Button
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
+                      className="w-full bg-base hover:bg-base text-white"
                       asChild
                     >
                       <Link href="/donate" onClick={() => setIsOpen(false)}>

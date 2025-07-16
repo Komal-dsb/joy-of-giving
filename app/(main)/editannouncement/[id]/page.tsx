@@ -288,7 +288,7 @@ export default function EditAnnouncementForm() {
         <div className="mb-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Edit <span className="text-background">Announcement</span>
+              Edit <span className="txt-base">Announcement</span>
             </h1>
             <p className="text-gray-600 text-lg">
               Update your announcement details and make it even more amazing! ✨
@@ -324,7 +324,7 @@ export default function EditAnnouncementForm() {
                 <div className="space-y-2">
                   <Label
                     htmlFor="title"
-                    className="text-sm font-semibold text-gray-700"
+                    className="text-sm font-semibold txt-base"
                   >
                     Announcement Title *
                   </Label>
@@ -343,7 +343,7 @@ export default function EditAnnouncementForm() {
                 <div className="space-y-2">
                   <Label
                     htmlFor="description"
-                    className="text-sm font-semibold text-gray-700"
+                    className="text-sm font-semibold txt-base"
                   >
                     Description *
                   </Label>
@@ -363,7 +363,7 @@ export default function EditAnnouncementForm() {
                 <div className="space-y-2">
                   <Label
                     htmlFor="eventVenue"
-                    className="text-sm font-semibold text-gray-700"
+                    className="text-sm font-semibold txt-base"
                   >
                     Event/Venue *
                   </Label>
@@ -384,7 +384,7 @@ export default function EditAnnouncementForm() {
                 <div className="space-y-2">
                   <Label
                     htmlFor="eventDate"
-                    className="text-sm font-semibold text-gray-700"
+                    className="text-sm font-semibold txt-base"
                   >
                     Event Date *
                   </Label>
@@ -416,7 +416,7 @@ export default function EditAnnouncementForm() {
                 {/* Current Brochure Display */}
                 {currentBrochureUrl && (
                   <div className="space-y-2">
-                    <Label className="text-sm font-semibold text-gray-700">
+                    <Label className="text-sm font-semibold txt-base">
                       Current Brochure
                     </Label>
                     <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
@@ -458,7 +458,7 @@ export default function EditAnnouncementForm() {
                       type="file"
                       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                       onChange={handleFileChange}
-                      className="w-full h-12 border-gray-200 focus:border-background focus:ring-background file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-background file:text-white hover:file:bg-background"
+                      className="w-full h-12 border-gray-200 focus:border-background focus:ring-background file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[var(--base-theme)] file:text-white hover:file:bg-[var(--base-theme)]"
                       disabled={isSubmitting || isDeleting}
                     />
                     <div className="flex items-center mt-2 text-xs text-gray-500">
@@ -505,7 +505,7 @@ export default function EditAnnouncementForm() {
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
                     type="submit"
-                    className="flex-1 h-12 text-base font-semibold bg-background hover:bg-background shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="flex-1 h-12 text-base font-semibold bg-base hover:bg-base shadow-lg hover:shadow-xl transition-all duration-300"
                     disabled={isSubmitting || isDeleting}
                   >
                     {isSubmitting ? (
@@ -577,7 +577,7 @@ export default function EditAnnouncementForm() {
                 setSelectedPhotos(Array.from(files));
               }
             }}
-            className="w-full h-12 border-gray-200 focus:border-background focus:ring-background file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-background file:text-white hover:file:bg-background"
+            className="w-full h-12 border-gray-200 focus:border-bg-[var(--base-theme)] focus:ring-bg-[var(--base-theme)] file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[var(--base-theme)] file:text-white hover:file:bg-[var(--base-theme)]"
             disabled={isSubmitting || isDeleting}
           />
           <p className="text-xs text-gray-500">

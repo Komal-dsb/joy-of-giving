@@ -94,7 +94,7 @@ export function LatestAnnouncements() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-6">Latest Updates</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold txt-base mb-6">Latest Updates</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay informed about our latest initiatives, success stories, and urgent appeals for support.
           </p>
@@ -114,7 +114,7 @@ export function LatestAnnouncements() {
           </div>
         ) : announcements.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-background mb-4">No announcements available at the moment.</p>
+            <p className="txt-background mb-4">No announcements available at the moment.</p>
             <Button asChild variant="outline">
               <Link href="/">Create New Announcement</Link>
             </Button>
@@ -134,14 +134,14 @@ export function LatestAnnouncements() {
                       <div className="flex items-center justify-between mb-4">
                         <span
                           className={`px-3 py-1 rounded-full text-sm font-medium ${
-                            announcement.isUrgent ? "bg-red-100 text-background" : "bg-blue-50 text-background"
+                            announcement.isUrgent ? "bg-red-100 txt-base" : "bg-blue-50 txt-base"
                           }`}
                         >
                           {announcement.category}
                         </span>
                       
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-background transition-colors">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:txt-base transition-colors">
                         {announcement.title}
                       </h3>
                       <p className="text-gray-600 mb-4 leading-relaxed">{announcement.excerpt}</p>

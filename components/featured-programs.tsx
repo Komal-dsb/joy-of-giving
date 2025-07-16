@@ -50,7 +50,7 @@ export function FeaturedPrograms() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-6">Our Programs</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold txt-base mb-6">Our Programs</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how we&apos;re making a difference through our targeted programs designed to address the most pressing
             needs in communities worldwide.
@@ -75,7 +75,7 @@ export function FeaturedPrograms() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-1 left-1">
-                    <span className="bg-background text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-base text-white px-3 py-1 rounded-full text-sm font-medium">
                       {program.category}
                     </span>
                   </div>

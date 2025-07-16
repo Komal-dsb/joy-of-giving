@@ -36,7 +36,7 @@ export function HeroSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
             Together We Can
-            <span className="text-background block">Change Lives</span>
+            <span className="txt-base block">Change Lives</span>
           </motion.h1>
 
           <motion.p
@@ -56,7 +56,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-background hover:bg-background text-foreground px-8 py-4 text-lg font-semibold group"
+              className="bg-base hover:bg-base-theme text-foreground px-8 py-4 text-lg font-semibold group"
               asChild
             >
               <Link href="/donate">
@@ -68,7 +68,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="bg-background hover:bg-background text-foreground hover:text-forground px-8 py-4 text-lg font-semibold group "
+              className="background-base-theme hover:bg-background text-foreground hover:text-forground px-8 py-4 text-lg font-semibold group "
               asChild
             >
               <Link href="/volunteer">

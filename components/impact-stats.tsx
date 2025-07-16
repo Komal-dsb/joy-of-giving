@@ -51,7 +51,7 @@ export function ImpactStats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-background text-white">
+    <section ref={ref} className="py-20 bg-base text-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

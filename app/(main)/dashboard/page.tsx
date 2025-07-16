@@ -134,7 +134,7 @@ export default function AdminDashboard() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-8 h-8 text-background animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading dashboard...</p>
@@ -167,19 +167,19 @@ export default function AdminDashboard() {
           >
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                Admin <span className="text-background">Dashboard</span>
+                Admin <span className="txt-base">Dashboard</span>
               </h1>
               <p className="text-gray-600">Manage your announcements and events efficiently ✨</p>
             </div>
             <div className="flex gap-3">
-              <Button onClick={() => router.push("/createannouncement")} className="bg-background hover:bg-background flex items-center gap-2">
+              <Button onClick={() => router.push("/createannouncement")} className="bg-base hover:bg-base flex items-center gap-2">
                 <Plus className="w-4 h-4" />
                 Create Announcement
               </Button>
               <Button
                 onClick={() => router.push("/createbrochure")}
                 variant="outline"
-                className="bg-background text-white hover:text-white hover:bg-background flex items-center gap-2"
+                className="bg-base text-white hover:text-white hover:bg-base flex items-center gap-2"
               >
                 <FileText className="w-4 h-4" />
                 Create Brochure
@@ -314,7 +314,7 @@ export default function AdminDashboard() {
                                   href={announcement.brochure_url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center text-red-600 hover:text-red-700 text-sm font-medium"
+                                  className="inline-flex items-center txt-base text-sm font-medium"
                                 >
                                   <ExternalLink className="w-3 h-3 mr-1" />
                                   View
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
                                   size="sm"
                                   variant="outline"
                                   onClick={() => router.push(`/editannouncement/${announcement.id}`)}
-                                  className="h-8 w-8 p-0 bg-background text-white hover:bg-background hover:text-white"
+                                  className="h-8 w-8 p-0 bg-base text-white hover:bg-base hover:text-white"
                                 >
                                   <Edit className="w-3 h-3 text-white hover:text-background" />
                                 </Button>
@@ -338,7 +338,7 @@ export default function AdminDashboard() {
                                   variant="outline"
                                   onClick={() => handleDelete(announcement.id)}
                                   disabled={deletingId === announcement.id}
-                                  className="h-8 w-8 p-0 bg-background text-white hover:bg-background hover:text-white"
+                                  className="h-8 w-8 p-0 bg-base text-white hover:bg-base hover:text-white"
                                 >
                                   {deletingId === announcement.id ? (
                                     <Loader2 className="w-3 h-3 animate-spin" />

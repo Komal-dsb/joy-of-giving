@@ -62,7 +62,7 @@ export function TimelineSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-background mb-6">Our Journey</h2>
+          <h2 className="text-3xl md:text-4xl font-bold txt-base mb-6">Our Journey</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From humble beginnings to global impact, see how we&aposve grown and the milestones we&aposve achieved together.
           </p>
@@ -90,8 +90,8 @@ export function TimelineSection() {
                 <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
                   <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
                     <div className="flex items-center mb-2">
-                      <span className="text-2xl font-bold text-background mr-3">{event.year}</span>
-                      <span className="bg-blue-100 text-background text-xs font-medium px-2 py-1 rounded-full">
+                      <span className="text-2xl font-bold txt-base mr-3">{event.year}</span>
+                      <span className="bg-blue-100 txt-base text-xs font-medium px-2 py-1 rounded-full">
                         {event.milestone}
                       </span>
                     </div>

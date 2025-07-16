@@ -112,7 +112,7 @@ const Impact = () => {
                 className="text-5xl md:text-6xl font-bold text-gray-900"
                 variants={fadeInUp}
               >
-                Our <span className="text-background">Impact</span>
+                Our <span className="txt-base">Impact</span>
               </motion.h1>
               <motion.p
                 className="text-xl text-gray-600 leading-relaxed"
@@ -124,7 +124,7 @@ const Impact = () => {
               </motion.p>
               <a
                 href="#stories"
-                className="inline-flex items-center gap-2 p-4 bg-background text-white rounded-md  font-sm hover:bg-background transition"
+                className="inline-flex items-center gap-2 p-4 bg-base text-white rounded-md  font-sm hover:bg-base transition"
               >
                 Read Stories
                 <ArrowRight className="w-5 h-5" />
@@ -155,11 +155,11 @@ const Impact = () => {
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
                   <CardContent className="pt-6">
-                    <stat.icon className="w-12 h-12 text-background mx-auto mb-6" />
+                    <stat.icon className="w-12 h-12 txt-base mx-auto mb-6" />
                     <h3 className="text-4xl font-bold text-gray-900 mb-2">
                       {stat.number}
                     </h3>
-                    <p className="text-lg font-semibold text-background mb-3">
+                    <p className="text-lg font-semibold txt-base mb-3">
                       {stat.label}
                     </p>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -183,7 +183,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.2 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-background mb-4 text-center"
+            className="text-4xl font-bold txt-base mb-4 text-center"
             variants={fadeInUp}
           >
             Stories of Hope
@@ -208,7 +208,7 @@ const Impact = () => {
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                   <Card className="border-0 shadow-xl overflow-hidden">
                     <CardContent className="p-8">
-                      <Quote className="w-12 h-12 text-background mb-6" />
+                      <Quote className="w-12 h-12 txt-base mb-6" />
                       <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic">
                         &quot;{testimonial.story}&quot;
                       </blockquote>
@@ -228,7 +228,7 @@ const Impact = () => {
                           <p className="text-gray-600">
                             {testimonial.location}
                           </p>
-                          <p className="text-background text-sm font-medium">
+                          <p className="txt-base text-sm font-medium">
                             {testimonial.program}
                           </p>
                         </div>
@@ -266,7 +266,7 @@ const Impact = () => {
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.h2
-            className="text-4xl font-bold text-background mb-16 text-center"
+            className="text-4xl font-bold txt-base mb-16 text-center"
             variants={fadeInUp}
           >
             Program Outcomes
@@ -319,7 +319,7 @@ const Impact = () => {
                           key={outcomeIndex}
                           className="flex items-start space-x-3"
                         >
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-base rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-gray-600">{outcome}</span>
                         </li>
                       ))}
@@ -333,7 +333,7 @@ const Impact = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-background to-background text-white">
+      <section className="py-20 bg-base text-white">
         <motion.div
           className="container mx-auto px-4 text-center"
           initial="initial"
@@ -356,10 +356,10 @@ const Impact = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             variants={fadeInUp}
           >
-            <button className="bg-white text-background hover:bg-gray-100 px-8 py-4 text-lg rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+            <button className="bg-white txt-base hover:bg-gray-100 px-8 py-4 text-lg rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
               Support Our Mission
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-background px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300">
+            <button className="border-2 border-white text-white px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300">
               Volunteer Today
             </button>
           </motion.div>

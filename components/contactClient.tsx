@@ -55,7 +55,7 @@ const Contact = () => {
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
               variants={fadeInUp}
             >
-              Get in <span className="text-background">Touch</span>
+              Get in <span className="txt-base">Touch</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 leading-relaxed"
@@ -168,7 +168,7 @@ const Contact = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-[40%] bg-background hover:bg-background text-white py-4 rounded-full"
+                      className="w-[40%] bg-base hover:bg-base text-white py-4 rounded-full"
                     >
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
@@ -221,12 +221,12 @@ const Contact = () => {
                 ].map((item, index) => (
                   <Card
                     key={index}
-                    className="border-l-4 border-l-background shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    className="border-l-4 border-l-red-300 shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="bg-blue-100 p-3 rounded-full">
-                          <item.icon className="w-6 h-6 text-background" />
+                          <item.icon className="w-6 h-6 txt-base" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -246,9 +246,9 @@ const Contact = () => {
               </div>
 
               {/* Emergency Contact */}
-              <Card className="bg-gray-50 border-2 border-background">
+              <Card className="bg-gray-50 border-2 border-red-300">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-background mb-2">
+                  <h3 className="text-lg font-bold txt-base mb-2">
                     Emergency Assistance
                   </h3>
                   <p className="text-black mb-3">

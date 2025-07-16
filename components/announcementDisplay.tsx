@@ -87,7 +87,7 @@ const AnnouncementsDisplay = () => {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-background mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-txt-base mx-auto mb-4"></div>
           <p className="text-gray-600">Loading amazing announcements...</p>
         </div>
       </div>
@@ -129,7 +129,7 @@ const AnnouncementsDisplay = () => {
         >
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6" variants={fadeInUp}>
-              Latest <span className="text-background">Announcements</span>
+              Latest <span className="txt-base">Announcements</span>
             </motion.h1>
             <motion.p className="text-xl text-gray-600 leading-relaxed" variants={fadeInUp}>
               Stay updated with our exciting events, programs, and community initiatives. Be part of something amazing
@@ -177,12 +177,12 @@ const AnnouncementsDisplay = () => {
                     </div>
                     <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
                       <div className="flex items-center space-x-3 mb-4">
-                        <Calendar className="w-6 h-6 text-background" />
+                        <Calendar className="w-6 h-6 txt-base" />
                         <span className="text-red-600 font-semibold uppercase text-sm">
                           {isUpcomingEvent(featuredAnnouncement.eventDate) ? "Upcoming Event" : "Past Event"}
                         </span>
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-900 mb-4 hover:text-background transition-colors duration-300">
+                      <h2 className="text-3xl font-bold text-gray-900 mb-4  hover:text-[var(--base-theme)] transition-colors duration-300">
                         {truncateWords(featuredAnnouncement.title, 50)}
                       </h2>
                       <p className="text-gray-600 leading-relaxed mb-6">
@@ -198,7 +198,7 @@ const AnnouncementsDisplay = () => {
                           {featuredAnnouncement.eventVenue}
                         </div>
                       </div>
-                      <div className="text-sm text-background font-medium  transition-colors duration-300">
+                      <div className="text-sm txt-base font-medium  transition-colors duration-300">
                         Click to read more →
                       </div>
                     </CardContent>
@@ -212,7 +212,7 @@ const AnnouncementsDisplay = () => {
 
       {/* Upcoming Events */}
       {upcomingAnnouncements.length > 1 && (
-        <section className="py-20 bg-red-50">
+        <section className="py-20 bg-gray-100">
           <motion.div
             className="container mx-auto px-4"
             initial="initial"
@@ -252,13 +252,13 @@ const AnnouncementsDisplay = () => {
                         </div>
                       </div>
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-background transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:txt-base transition-colors duration-300">
                           {truncateWords(announcement.title, 50)}
                         </h3>
                         <p className="text-gray-600 leading-relaxed mb-4">
                           {truncateWords(announcement.description, 150)}
                         </p>
-                        <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <div className="flex items-center justify-between text-sm text-black mb-4">
                           <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-1" />
                             {formatDate(announcement.eventDate)}
@@ -270,12 +270,12 @@ const AnnouncementsDisplay = () => {
                         </div>
                         <div className="flex items-center justify-between">
                           {announcement.brochure_url && (
-                            <div className="inline-flex items-center text-background font-semibold text-sm transition-colors duration-300">
+                            <div className="inline-flex items-center txt-base font-semibold text-sm transition-colors duration-300">
                               <FileText className="w-4 h-4 mr-1" />
                               View Details
                             </div>
                           )}
-                          <div className="text-sm text-background font-medium transition-colors duration-300">
+                          <div className="text-sm txt-base font-medium transition-colors duration-300">
                             Read more →
                           </div>
                         </div>
@@ -299,7 +299,7 @@ const AnnouncementsDisplay = () => {
             viewport={{ once: true }}
             variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
           >
-            <motion.h2 className="text-4xl font-bold text-background mb-16 text-center" variants={fadeInUp}>
+            <motion.h2 className="text-4xl font-bold txt-base mb-16 text-center" variants={fadeInUp}>
               Past Events
             </motion.h2>
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -331,13 +331,13 @@ const AnnouncementsDisplay = () => {
                         </div>
                       </div>
                       <CardContent className="p-4">
-                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-background transition-colors duration-300">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:txt-base transition-colors duration-300">
                           {truncateWords(announcement.title, 50)}
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed mb-3">
                           {truncateWords(announcement.description, 150)}
                         </p>
-                        <div className="flex items-center justify-between text-xs text-background">
+                        <div className="flex items-center justify-between text-sm txt-base">
                           <div className="flex items-center">
                             <Calendar className="w-3 h-3 mr-1" />
                             {formatDate(announcement.eventDate)}
@@ -366,7 +366,7 @@ const AnnouncementsDisplay = () => {
 
       {/* Empty State */}
       {announcements.length === 0 && (
-        <section className="py-20 bg-red-50">
+        <section className="py-20 bg-gray-100">
           <motion.div
             className="container mx-auto px-4 text-center"
             initial="initial"
@@ -384,7 +384,7 @@ const AnnouncementsDisplay = () => {
       )}
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-r from-background to-background text-white">
+      <section className="py-20 bg-base text-white">
         <motion.div
           className="container mx-auto px-4 text-center"
           initial="initial"
@@ -408,7 +408,7 @@ const AnnouncementsDisplay = () => {
               placeholder="Enter your email"
               className="flex-1 text-white px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-auto"
             />
-            <button className="bg-white text-background hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap">
+            <button className="bg-white txt-base hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg whitespace-nowrap">
               Subscribe
             </button>
           </motion.div>
