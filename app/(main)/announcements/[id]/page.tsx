@@ -1,18 +1,15 @@
 // app/announcements/[id]/page.tsx
+
 import ClientAnnouncement from "@/components/clientAnnouncement";
+import type { Metadata } from "next";
 
-type Props = {
-  params: { id: string };
+type PageProps = {
+   params: Promise<{id:string}>
 };
+// ✅ Server-side metadata generation
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const id = (await params).id;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const id = params.id;
-
-  // Use server fetch for SEO metadata
   const { supabase } = await import("@/lib/supabase");
   const { data: announcement, error } = await supabase
     .from("announcements")
@@ -23,20 +20,24 @@ export async function generateMetadata({
   if (error || !announcement) {
     return {
       title: "Announcement Not Found | Joy of Giving",
-      description: "The announcement you are looking for does not exist on Joy of Giving.",
+      description: "The announcement you are looking for does not exist.",
       robots: "noindex, nofollow",
     };
   }
 
   const title = `${announcement.title} | Joy of Giving`;
-  const description = announcement.description?.slice(0, 160) || "Discover the latest announcement from Joy of Giving.";
+  const description =
+    announcement.description?.slice(0, 160) ??
+    "Discover the latest announcement from Joy of Giving.";
   const image = announcement.brochure_url || "joy-givingLogo.png";
   const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/announcements/${id}`;
 
   return {
     title,
     description,
-    keywords: announcement.keywords || "announcement, joy of giving, events, charity, social work",
+    keywords:
+      announcement.keywords ||
+      "announcement, joy of giving, events, charity, social work",
     authors: [{ name: announcement.author || "Joy of Giving" }],
     creator: announcement.author || "Joy of Giving",
     publisher: "Joy of Giving",
@@ -63,6 +64,7 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: Props) {
-  return <ClientAnnouncement id={params.id} />;
+
+export default async function Page({ params }: PageProps) {
+  return <ClientAnnouncement id={(await params).id} />;
 }
