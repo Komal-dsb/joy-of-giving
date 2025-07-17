@@ -24,7 +24,7 @@ const EventTemplate: FC<EventTemplateProps> = ({
   title,
 }) => (
   <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-    <Card className="overflow-hidden py-0 shadow-2xl rounded-3xl border-0 bg-gradient-to-br from-white to-gray-50/50">
+    <Card className="overflow-hidden py-0 shadow-2xl rounded-3xl border-0 bg-gray-50">
       {announcement.brochure_url && (
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10" />
@@ -50,7 +50,7 @@ const EventTemplate: FC<EventTemplateProps> = ({
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-          <Card className="border-2 border-red-100 bg-gradient-to-br from-red-50 to-red-100/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
+          <Card className="border-2 border-gray-100 bg-gray-50 hover:shadow-lg transition-all duration-300 hover:scale-105">
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-red-500 rounded-full">

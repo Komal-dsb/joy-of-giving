@@ -308,12 +308,12 @@ export default function AIBrochureGenerator() {
         <div className="text-center mb-12">
         
 
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-orange-600 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--base-theme)] rounded-full mb-6">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             AI Brochure{" "}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Designer</span>
+            <span className="bg-[var(--base-theme)] bg-clip-text text-transparent">Designer</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Just provide your event details and let AI create stunning, professional brochure templates for you! ✨
@@ -443,7 +443,7 @@ export default function AIBrochureGenerator() {
                       type="file"
                       accept="image/*"
                       onChange={handleFileChange}
-                      className="h-12 text-base file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gradient-to-r file:from-red-600 file:to-orange-600 file:text-white hover:file:from-red-700 hover:file:to-orange-700"
+                      className="h-12 text-base file:mr-4 file:mt-1 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[var(--base-theme)] file:text-white hover:file:from-red-700 hover:file:to-orange-700"
                       disabled={isGenerating}
                     />
                     <div className="flex items-center mt-2 text-sm text-gray-600">
@@ -477,7 +477,7 @@ export default function AIBrochureGenerator() {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full h-14 text-lg font-semibold bg-[var(--base-theme)] hover:bg-[var(--base-theme)] shadow-lg hover:shadow-xl transition-all duration-300"
                   disabled={isGenerating}
                 >
                   {isGenerating ? (

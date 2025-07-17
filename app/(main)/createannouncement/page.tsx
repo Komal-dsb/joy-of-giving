@@ -221,7 +221,7 @@ export default function AnnouncementForm() {
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             Create new{" "}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-base bg-clip-text text-transparent">
               Announcement
             </span>
           </h1>
@@ -348,7 +348,7 @@ export default function AnnouncementForm() {
                     type="file"
                     accept=".jpg,.png"
                     onChange={handleFileChange}
-                    className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-red-500 file:text-primary-foreground  hover:file:bg-red-600"
+                    className="w-full file:mr-4 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[var(--base-theme)] file:text-primary-foreground  hover:file:bg-[var(--base-theme)]"
                     disabled={isSubmitting}
                   />
                   <div className="flex items-center mt-2 text-xs text-gray-500">
@@ -368,7 +368,7 @@ export default function AnnouncementForm() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r  from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 text-base font-medium"
+                className="w-full bg-[var(--base-theme)] py-3 text-base font-medium"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

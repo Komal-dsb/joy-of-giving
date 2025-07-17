@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 type PageProps = {
    params: Promise<{id:string}>
 };
-// ✅ Server-side metadata generation
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const id = (await params).id;
 
