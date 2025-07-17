@@ -1,16 +1,11 @@
-
 import { supabase } from "@/lib/supabase";
 import { AnnouncementFormData } from "@/components/types/announcement";
 import EventTemplate from "@/components/event-template";
-export const dynamic = "force-dynamic";
 import type { Metadata } from 'next';
 
-
 type Props ={
-  params: Promise<{id:string}
-  >
+  params: Promise<{id:string}>
 }
-
 
 const getAnnouncement = async (id: string) => {
   const { data, error } = await supabase
@@ -38,15 +33,15 @@ export async function generateMetadata({ params }:Props):Promise<Metadata>  {
   }
 
   // Dynamic values
-  const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/announcements/${(await params).id}`; 
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/announcements/${(await params).id}`;
   const title = `${announcement.title} | Joy of Giving`;
   const description = announcement.description?.slice(0, 160) || "Discover the latest announcement from Joy of Giving.";
-  const image = announcement.brochure_url || "joy-givingLogo.png"; 
+  const image = announcement.brochure_url || "joy-givingLogo.png";
 
   return {
     title,
     description,
-    keywords: announcement.keywords || "announcement, joy of giving, events, charity, social work", 
+    keywords: announcement.keywords || "announcement, joy of giving, events, charity, social work",
     authors: [{ name: announcement.author || "Joy of Giving" }],
     creator: announcement.author || "Joy of Giving",
     publisher: "Joy of Giving",
@@ -73,14 +68,12 @@ export async function generateMetadata({ params }:Props):Promise<Metadata>  {
       title,
       description,
       images: [image],
-      creator: "@your_twitter_handle", 
+      creator: "@your_twitter_handle",
       site: "@your_twitter_handle",
     },
     robots: "index, follow",
   };
 }
-
-
 
 async function AnnouncementDetailPage({
   params,
@@ -114,3 +107,4 @@ async function AnnouncementDetailPage({
 }
 
 export default AnnouncementDetailPage;
+

@@ -78,7 +78,7 @@ export function DonationFAQ() {
               className="mb-4"
             >
               <button
-                className="w-full text-left bg-red-50 hover:bg-red-100 rounded-lg p-6 transition-colors duration-200"
+                className="w-full text-left bg-gray-50 hover:bg-gray-100 rounded-lg p-6 transition-colors duration-200"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex justify-between items-center">
