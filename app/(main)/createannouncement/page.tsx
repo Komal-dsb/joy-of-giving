@@ -368,7 +368,7 @@ export default function AnnouncementForm() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-[var(--base-theme)] py-3 text-base font-medium"
+                className="w-full bg-[var(--base-theme)] hover:bg-[var(--base-theme)] py-3 text-base font-medium"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
