@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 import {
   Calendar,
-  AlertCircle,
   Heart,
   Megaphone,
   FileText,
@@ -16,11 +15,14 @@ import { supabase } from "@/lib/supabase";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "lucide-react";
 import type { AnnouncementRecord } from "@/components/types/announcement";
+import { toast } from "sonner";
+ 
+
 
 const AnnouncementsDisplay = () => {
   const [announcements, setAnnouncements] = useState<AnnouncementRecord[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+ 
   const router = useRouter();
 
   const isImageFile = (url: string) => /\.(jpg|jpeg|png|gif|webp)$/i.test(url);
@@ -51,7 +53,8 @@ const AnnouncementsDisplay = () => {
       setAnnouncements(data || []);
     } catch (err) {
       console.error("Error fetching announcements:", err);
-      setError("Failed to load announcements. Please try again later.");
+     
+      toast.error("Failed to load announcements. Please try again later.")
     } finally {
       setLoading(false);
     }
@@ -98,22 +101,7 @@ const AnnouncementsDisplay = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <AlertCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-          <p className="text-gray-600">{error}</p>
-          <button
-            onClick={fetchAnnouncements}
-            className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300"
-          >
-            Try Again
-          </button>
-        </div>
-      </div>
-    );
-  }
+ 
 
   const upcomingAnnouncements = announcements.filter((ann) =>
     isUpcomingEvent(ann.eventDate)
@@ -159,7 +147,7 @@ const AnnouncementsDisplay = () => {
                       alt={featuredAnnouncement.title}
                       width={600}
                       height={300}
-                      className="w-full h-full object-cover min-h-96 hover:scale-105 transition-transform duration-500"
+                      className="w-full rounded-2xl p-1 h-full object-cover min-h-96 hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-red-100 text-background border-red-200">
@@ -231,8 +219,8 @@ const AnnouncementsDisplay = () => {
                           }
                           alt={announcement.title}
                           width={600}
-                          height={300}
-                          className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-700"
+                          height={400}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />
                         <div className="absolute top-4 left-4">
                           <Badge className={getTypeColor(true)}>

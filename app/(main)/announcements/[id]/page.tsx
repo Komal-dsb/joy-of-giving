@@ -1,4 +1,4 @@
-// app/announcements/[id]/page.tsx
+
 
 import ClientAnnouncement from "@/components/clientAnnouncement";
 import type { Metadata } from "next";
