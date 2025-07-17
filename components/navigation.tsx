@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+
 import { Menu, X, Shield, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -94,9 +94,7 @@ export function Navigation() {
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-base"
+                  <div  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-base"
                   />
                 )}
               </Link>
@@ -148,13 +146,10 @@ export function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      <AnimatePresence>
+    
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.1 }}
+          <div
+          
             className="md:hidden bg-white border-t border-gray-200 px-4"
           >
             <div className="flex flex-col py-4 space-y-2">
@@ -214,9 +209,9 @@ export function Navigation() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+   
     </nav>
   )
 }
