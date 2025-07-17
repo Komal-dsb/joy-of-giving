@@ -326,7 +326,7 @@ export default function AdminAnnouncementsPage() {
             className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"
             variants={fadeInUp}
           >
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl cursor-pointer transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total</CardTitle>
                 <FileText className="h-4 w-4 text-red-600" />
@@ -339,7 +339,7 @@ export default function AdminAnnouncementsPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl cursor-pointer transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Upcoming</CardTitle>
                 <Calendar className="h-4 w-4 text-green-600" />
@@ -350,7 +350,7 @@ export default function AdminAnnouncementsPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl cursor-pointer transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   Past Events
@@ -365,7 +365,7 @@ export default function AdminAnnouncementsPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl cursor-pointer transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
                   With Files

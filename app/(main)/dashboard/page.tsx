@@ -191,7 +191,7 @@ export default function AdminDashboard() {
 
           {/* Stats Cards */}
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" variants={fadeInUp}>
-            <Card onClick={() => router.push("/totalannouncements")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/totalannouncements")} className="border-0 cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Announcements</CardTitle>
                 <FileText className="h-4 w-4 text-red-600" />
@@ -202,7 +202,7 @@ export default function AdminDashboard() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Upcoming Events</CardTitle>
                 <Calendar className="h-4 w-4 text-red-600" />
@@ -213,7 +213,7 @@ export default function AdminDashboard() {
               </CardContent>
             </Card>
 
-            <Card onClick={() => router.push("/totalbrochures")} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card onClick={() => router.push("/totalbrochures")} className="border-0 shadow-lg cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">With Brochures</CardTitle>
                 <Shield className="h-4 w-4 text-green-600" />
